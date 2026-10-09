@@ -1,0 +1,180 @@
+2026-10-09T01:36:32+03:30
+dig google.com A
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 google.com A
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 44542
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;google.com.			IN	A
+
+;; ANSWER SECTION:
+google.com.		1	IN	A	216.239.38.120
+
+;; Query time: 24 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 09 01:36:32 +0330 2026
+;; MSG SIZE  rcvd: 55
+
+dig google.com AAAA
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 google.com AAAA
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 54288
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;google.com.			IN	AAAA
+
+;; ANSWER SECTION:
+google.com.		1	IN	AAAA	2001:4860:4802:32::78
+
+;; Query time: 31 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 09 01:36:32 +0330 2026
+;; MSG SIZE  rcvd: 67
+
+dig google.com MX
+;; communications error to 127.0.0.53#53: timed out
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 google.com MX
+;; global options: +cmd
+;; no servers could be reached
+dig google.com TXT
+;; communications error to 127.0.0.53#53: timed out
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 google.com TXT
+;; global options: +cmd
+;; no servers could be reached
+dig google.com NS
+;; communications error to 127.0.0.53#53: timed out
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 google.com NS
+;; global options: +cmd
+;; no servers could be reached
+dig google.com SOA
+;; communications error to 127.0.0.53#53: timed out
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 google.com SOA
+;; global options: +cmd
+;; no servers could be reached
+dig www.wikipedia.org CNAME
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 www.wikipedia.org CNAME
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 3905
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;www.wikipedia.org.		IN	CNAME
+
+;; ANSWER SECTION:
+www.wikipedia.org.	6824	IN	CNAME	dyna.wikimedia.org.
+
+;; Query time: 1 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 09 01:36:44 +0330 2026
+;; MSG SIZE  rcvd: 75
+
+Examples from other domains when Google record queries receive no answer:
+dig cloudflare.com MX
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 cloudflare.com MX
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 8689
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;cloudflare.com.			IN	MX
+
+;; ANSWER SECTION:
+cloudflare.com.		1706	IN	MX	10 mxa.global.inbound.cf-emailsecurity.net.
+cloudflare.com.		1706	IN	MX	5 mxa-canary.global.inbound.cf-emailsecurity.net.
+cloudflare.com.		1706	IN	MX	5 mxb-canary.global.inbound.cf-emailsecurity.net.
+cloudflare.com.		1706	IN	MX	10 mxb.global.inbound.cf-emailsecurity.net.
+
+;; Query time: 1 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 09 01:36:44 +0330 2026
+;; MSG SIZE  rcvd: 172
+
+dig cloudflare.com NS
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 cloudflare.com NS
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 49582
+;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;cloudflare.com.			IN	NS
+
+;; ANSWER SECTION:
+cloudflare.com.		7108	IN	NS	ns4.cloudflare.com.
+cloudflare.com.		7108	IN	NS	ns5.cloudflare.com.
+cloudflare.com.		7108	IN	NS	ns6.cloudflare.com.
+cloudflare.com.		7108	IN	NS	ns3.cloudflare.com.
+cloudflare.com.		7108	IN	NS	ns7.cloudflare.com.
+
+;; Query time: 1 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 09 01:36:44 +0330 2026
+;; MSG SIZE  rcvd: 133
+
+dig cloudflare.com SOA
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 cloudflare.com SOA
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 20339
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;cloudflare.com.			IN	SOA
+
+;; ANSWER SECTION:
+cloudflare.com.		208	IN	SOA	ns3.cloudflare.com. dns.cloudflare.com. 2416724497 10000 2400 604800 300
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 09 01:36:44 +0330 2026
+;; MSG SIZE  rcvd: 87
+
+dig example.com TXT
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> +time=3 +tries=1 example.com TXT
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 14673
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;example.com.			IN	TXT
+
+;; ANSWER SECTION:
+example.com.		300	IN	TXT	"v=spf1 -all"
+example.com.		300	IN	TXT	"_k2n1y4vw3qtb4skdx9e7dxt97qrmmq9"
+
+;; Query time: 102 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Oct 09 01:36:44 +0330 2026
+;; MSG SIZE  rcvd: 109

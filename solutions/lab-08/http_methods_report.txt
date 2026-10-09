@@ -1,0 +1,181 @@
+2026-10-09T01:30:12+03:30
+GET /posts/1
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100    292 100    292   0      0    799      0                              0
+100    292 100    292   0      0    799      0                              0
+100    292 100    292   0      0    798      0                              0
+HTTP/2 200
+date: Thu, 08 Oct 2026 22:00:12 GMT
+content-type: application/json; charset=utf-8
+content-length: 292
+access-control-allow-credentials: true
+cache-control: max-age=43200
+etag: W/"124-yiKdLzqO5gfBrJFrcdJ8Yq0LGnU"
+expires: -1
+pragma: no-cache
+vary: Origin, Accept-Encoding
+x-content-type-options: nosniff
+x-powered-by: Express
+x-ratelimit-limit: 3600000
+x-ratelimit-remaining: 3599999
+x-ratelimit-reset: 1790812826
+age: 14665
+accept-ranges: bytes
+cf-cache-status: HIT
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=kAfj7CggkAawqdeYtslwVtIx3ARwtD8otdARybpvPgXv6Mj213pdblNBP1hAzbpfXl8TBftILUBwUgyUFe0NwyC6NOamJGaMrht%2FKREzYNUEGedrj2Igo93tqQe7ek797hL%2Fk5Ot7epPklQajIim"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a4786ac53eacdbbf-FRA
+alt-svc: h3=":443"; ma=86400
+
+{
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}curl exit code: 0
+POST /posts
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100    114 100     70 100     44    152     95                              0
+100    114 100     70 100     44    152     95                              0
+100    114 100     70 100     44    152     95                              0
+HTTP/2 201
+date: Thu, 08 Oct 2026 22:00:12 GMT
+content-type: application/json; charset=utf-8
+content-length: 70
+location: https://jsonplaceholder.typicode.com/posts/101
+access-control-allow-credentials: true
+access-control-expose-headers: Location
+cache-control: no-cache
+etag: W/"46-BiYpJdUwNFu4QDLKEYc8iWindrU"
+expires: -1
+pragma: no-cache
+vary: Origin, X-HTTP-Method-Override, Accept-Encoding
+x-content-type-options: nosniff
+x-powered-by: Express
+x-ratelimit-limit: 3600000
+x-ratelimit-remaining: 3599999
+x-ratelimit-reset: 1791497935
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2FBUq8q9w0AF9dxjbXpMNUNsQKSMg8mUK%2FRjdt6lCLndFYyTqIwlNJPNY%2FHWd8zqp3yW7QAiGAhXAJ99cQ%2BlfgZxuWDHV9LB2aiDzaQovHSVQqdlFkxj1Hf6FBIZYISG0svdivhjMHbu29itFX9X3"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a4786ac77feedc8a-FRA
+alt-svc: h3=":443"; ma=86400
+
+{
+  "title": "test",
+  "body": "content",
+  "userId": 1,
+  "id": 101
+}curl exit code: 0
+PUT /posts/1
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100    125 100     71 100     54    106     81                              0
+100    125 100     71 100     54    106     80                              0
+100    125 100     71 100     54    106     80                              0
+HTTP/2 200
+date: Thu, 08 Oct 2026 22:00:13 GMT
+content-type: application/json; charset=utf-8
+content-length: 71
+access-control-allow-credentials: true
+cache-control: no-cache
+etag: W/"47-ZVhiVq4LaPJuUaCPq6Sv747EBYA"
+expires: -1
+pragma: no-cache
+vary: Origin, Accept-Encoding
+x-content-type-options: nosniff
+x-powered-by: Express
+x-ratelimit-limit: 3600000
+x-ratelimit-remaining: 3599998
+x-ratelimit-reset: 1791497935
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=WZJ1yB1NW%2FrEYlq%2F6r5uS%2Bk4CbyElwhblcnfegNf2pQDTBnPlEOQe27sN89Nfw8VVry12oJkNdRSqFlthEmS2wo496Ore7BawGVoAp6iZ46cVeH5MdQ93iUambFnFA0iYciV4TN%2BZcgHTP2S7hMR"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a4786aca8f78e5e3-FRA
+alt-svc: h3=":443"; ma=86400
+
+{
+  "id": 1,
+  "title": "updated",
+  "body": "content",
+  "userId": 1
+}curl exit code: 0
+DELETE /posts/1
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0           00:01              0
+100      2 100      2   0      0      1      0   00:02   00:01   00:01      1
+100      2 100      2   0      0      1      0   00:02   00:01   00:01      1
+100      2 100      2   0      0      1      0   00:02   00:01   00:01      1
+HTTP/2 200
+date: Thu, 08 Oct 2026 22:00:14 GMT
+content-type: application/json; charset=utf-8
+content-length: 2
+access-control-allow-credentials: true
+cache-control: no-cache
+etag: W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
+expires: -1
+pragma: no-cache
+vary: Origin, Accept-Encoding
+x-content-type-options: nosniff
+x-powered-by: Express
+x-ratelimit-limit: 3600000
+x-ratelimit-remaining: 3599997
+x-ratelimit-reset: 1791497935
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Tizo%2FExAyZErlat%2BTRH27qNBFaBVhM3suYPmzNQqJZ3RVyf8Mq9dBzp0vNJI8nxNqenobHeujEyOSBjH%2FBrDl%2FMIHFG%2Bet4%2BiCeg8pkNnNynkK1WGHYPhGtYNrFI4ECEISn3CEgVvziJkoRTxv8X"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a4786ad32dce4a83-FRA
+alt-svc: h3=":443"; ma=86400
+
+{}curl exit code: 0
+GET /posts/99999999 - inspect the 404 response
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100      2 100      2   0      0      5      0                              0
+100      2 100      2   0      0      5      0                              0
+100      2 100      2   0      0      5      0                              0
+HTTP/2 404
+date: Thu, 08 Oct 2026 22:00:15 GMT
+content-type: application/json; charset=utf-8
+content-length: 2
+access-control-allow-credentials: true
+cache-control: max-age=43200
+etag: W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"
+expires: -1
+pragma: no-cache
+vary: Origin, Accept-Encoding
+x-content-type-options: nosniff
+x-powered-by: Express
+x-ratelimit-limit: 3600000
+x-ratelimit-remaining: 3599999
+x-ratelimit-reset: 1791490735
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+age: 6722
+cf-cache-status: HIT
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=wKSrLWTgHaiUKH%2FG2%2BkEbrvShuaESemTGHOICHzo5ld%2F9afINnDx9xm%2BDTqsn4Bpls9clZCU6L5LVg40wMrQZ%2BVVRP289MW4zLAYTofSlxjj3UuCt4E0JmkcbLPkjgxoG%2FQVogNXXwM74Ow4GBVE"}]}
+server: cloudflare
+cf-ray: a4786ad63be54dc5-FRA
+alt-svc: h3=":443"; ma=86400
+
+{}curl exit code: 0
+HTTP: 200 OK, 201 Created, 404 Not Found, 500 Internal Server Error.
+The response status line contains the HTTP code; -i also displays headers.
+The curl exit code differs from the HTTP code; a 404 response can accompany curl exit code zero.
+This demonstration API does not persist POST/PUT/DELETE changes.

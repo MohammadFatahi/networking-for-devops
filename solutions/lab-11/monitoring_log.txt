@@ -1,0 +1,37 @@
+2026-10-09T01:30:39+03:30
+2: wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DORMANT group default qlen 1000
+    link/ether 00:00:5e:00:53:01 brd 00:00:5e:00:53:01
+    RX:  bytes  packets errors dropped  missed   mcast
+    2785181814  5858271      0       0       0       0
+    TX:  bytes  packets errors dropped carrier collsns
+      18210313 12305554    137       0       0       0
+    altname wlx0071cc9c0d97
+Sample interval: 5 seconds
+Download: 23974 bytes/s
+Upload: 178207 bytes/s
+Active TCP connections: 548
+Top 5 IPv4 addresses by sent + received packet bytes:
+988367 192.0.2.10
+897107 192.0.2.69
+47108 216.239.38.120
+16008 192.0.2.42
+7945 142.251.20.95
+
+2026-10-09T01:30:44+03:30
+2: wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DORMANT group default qlen 1000
+    link/ether 00:00:5e:00:53:01 brd 00:00:5e:00:53:01
+    RX:  bytes  packets errors dropped  missed   mcast
+    2785372448  5858646      0       0       0       0
+    TX:  bytes  packets errors dropped carrier collsns
+      18506842 12306014    137       0       0       0
+    altname wlx0071cc9c0d97
+Sample interval: 5 seconds
+Download: 38126 bytes/s
+Upload: 59305 bytes/s
+Active TCP connections: 545
+Top 5 IPv4 addresses by sent + received packet bytes:
+850220 192.0.2.10
+675264 192.0.2.69
+156666 192.0.2.42
+12983 216.239.38.120
+972 199.165.136.100

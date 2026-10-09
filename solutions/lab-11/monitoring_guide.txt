@@ -1,0 +1,33 @@
+Task 11.1 (original Task 6.1)
+sudo bash network_monitor.sh
+Stop with Ctrl+C. Output is appended to monitoring_log.txt.
+RX and TX are read from /proc/net/dev as in the hint. Counter differences divided by
+elapsed sampling time give receive/download and transmit/upload rates in bytes/s.
+The default-route interface is selected; ip -s link also displays its statistics.
+ss -Htn state established counts established TCP entries without a header.
+
+Connection counts alone do not measure traffic volume per address.
+The recorded server had tshark, which extracts IPv4 source, destination, and packet-length fields.
+Install if needed: sudo apt install tshark
+Capture runs in the background; a loop with sleep 5 samples every five seconds.
+Rates use actual elapsed time. The top five use packets from that sampling interval and the sum
+of bytes sent and received per address. Prior intervals are not counted again.
+The top-five table excludes IPv6, while interface counters include IPv6 traffic.
+traffic.tsv and capture_status.txt are temporary files produced by this script.
+
+Task 11.2 (original Task 6.2)
+sudo bash analyze_logs.sh
+For the educational sample: bash analyze_logs.sh sample_network.log
+The educational sample differs from real server logs; its result is in sample_log_analysis.txt.
+The analysis reads current text logs, excluding compressed files and the binary journal.
+The supplied syslog, auth.log, kern.log, and sample use ISO timestamps.
+Only lines with that timestamp format are sorted for the ten latest events.
+Other timestamp formats contribute to IP counts but not the ordered event table;
+inspect the relevant file separately with tail -n 10 for those formats.
+Address counts use the grep pattern from the hint.
+At least three login failures for an address are flagged for investigation.
+
+Task 11.3 (original Task 6.3)
+bash dashboard.sh
+The display refreshes every ten seconds. Stop with Ctrl+C.
+dashboard_screenshot.txt is recorded text from one refresh, not an image.

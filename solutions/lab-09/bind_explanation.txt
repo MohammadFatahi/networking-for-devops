@@ -1,0 +1,16 @@
+Task 9.4, theoretical answer (original Task 4.4)
+named.conf.local declares example.local as a zone.
+/etc/bind/db.example.local is the zone-file path in an actual installation.
+The task requires sample configuration, not a running BIND service.
+
+A records provide IPv4 addresses for www, mail, and ftp.
+NS identifies ns1.example.local; an A record is also supplied for ns1.
+MX points to mail.example.local with preference 10.
+SOA contains the server name, administrator mailbox in admin.example.local notation, and zone timing values.
+A trailing dot denotes a complete domain name; @ denotes example.local itself.
+Increase the serial when changing the zone.
+
+Syntax checks, if the tools are installed:
+named-checkconf named.conf.local
+named-checkzone example.local db.example.local
+Recorded checks are in bind_validation.txt; the main system DNS service was not changed.

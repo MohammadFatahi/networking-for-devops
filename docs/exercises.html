@@ -1,0 +1,349 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A practical Linux networking chapter and 12 English DevOps labs covering addressing, DNS, HTTP, TLS, SSH, monitoring, and troubleshooting."><meta name="theme-color" content="#152b2c"><title>English Exercises | Networking for DevOps</title><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="assets/style.css"><script src="assets/app.js" defer></script></head><body><a class="skip" href="#main">Skip to content</a><header class="top"><div class="wrap nav"><a class="brand" href="index.html"><span class="brandmark">N/</span><span>NETWORKING<br>FOR DEVOPS</span></a><nav class="navlinks" aria-label="Main navigation"><a href="index.html#chapter">Chapter</a><a class="active" href="exercises.html">Exercises</a><a class="" href="solutions.html">Answers</a><a class="github" href="https://github.com/MohammadFatahi/networking-for-devops">GitHub ↗</a></nav></div></header><main id="main" class="wrap"><div class="pageintro"><div class="eyebrow">THE PRACTICAL WORKBOOK</div><h1>One path. Twelve labs.</h1><p>The complete English exercise text, original hints, required outputs, and separate editorial notes.</p><div class="actions"><a class="btn primary" href="downloads/Networking_for_DevOps_Workbook.pdf">Download PDF ↓</a><a class="btn secondary" href="solutions.html">Explore the answers ↗</a></div></div><div class="readerlayout"><aside class="toc" aria-label="Lab contents"><div class="eyebrow">CONTENTS</div><a href="#lab-01">01 / Preparing a Web Server</a><a href="#lab-02">02 / Troubleshooting Network Problems</a><a href="#lab-03">03 / Network Security</a><a href="#lab-04">04 / DNS, Routing, and Topology</a><a href="#lab-05">05 / Protocols and Performance</a><a href="#lab-06">06 / SSL/TLS and HTTPS</a><a href="#lab-07">07 / FTP and File Transfer</a><a href="#lab-08">08 / HTTP and Web Services</a><a href="#lab-09">09 / DNS, CDNs, and BIND</a><a href="#lab-10">10 / SSH and Remote Management</a><a href="#lab-11">11 / Monitoring and Logging</a><a href="#lab-12">12 / Practical Troubleshooting</a></aside><article class="reader"><h1 id="networking-for-devops-practical-workbook">Networking for DevOps - Practical Workbook</h1>
+<h2 id="from-fundamentals-to-secure-services">From Fundamentals to Secure Services</h2>
+<p>This English workbook combines both supplied networking assignments into one learning sequence: <strong>12 labs and 38 tasks</strong>. Task requirements, expected filenames, hints, alternatives, and original point values are retained. Labs 1-5 come from Network Assignment 01; Labs 6-12 come from Network Assignment 02. New task numbers follow the lab number: for example, Task 6.1 was Assignment 02, Task 1.1.</p>
+<p>You are a junior DevOps engineer at a technology company. You need to prepare a Linux host for a web application, configure network services, investigate failures, and document what you observe. Work on a lab host or localhost where appropriate. Save commands, output, and explanations separately; distinguish executed results from theoretical answers or simulations.</p>
+<h3 id="notes-about-the-source-exercises">Notes about the source exercises</h3>
+<ul>
+<li>Assignment 01 states <strong>80 points</strong>, plus a <strong>10-point bonus</strong> scenario. Its required scenario scores sum to 80.</li>
+<li>Assignment 02 states <strong>60 points</strong> in its introduction, while the listed scenario/task scores sum to <strong>70</strong>. Both values are recorded here; no grading total has been silently changed.</li>
+<li>The original packet-capture requirement is 30 seconds, but its example uses packet limits. A packet limit and a duration are different; see the editorial note in Lab 2.</li>
+<li>The FTP question requests anonymous access while its hint disables it. The discrepancy is preserved and explained in Lab 7.</li>
+<li>Lab 11 asks for the <strong>10 most recent events</strong>, not events from the last ten minutes.</li>
+<li>Historical submission deadlines and course-panel instructions appear in the appendix. They are not a new deadline for this public workbook.</li>
+</ul>
+<h2 id="lab-01">Lab 1 - Preparing a Web Server (20 points)</h2>
+<p>Prepare a Linux server to host the company&#x27;s web application.</p>
+<h3 id="task-1-1-basic-network-information-5-points">Task 1.1 - Basic Network Information (5 points)</h3>
+<p>Write commands that display all network interfaces, the current IP address, the default gateway, and the configured DNS servers. Save these details in <code>network_info.txt</code>.</p>
+<p><strong>Hints:</strong> Use <code>ip addr</code>, <code>ip route</code>, and <code>cat /etc/resolv.conf</code>. You can also inspect interfaces with <code>ifconfig</code> or <code>ip link</code>.</p>
+<h3 id="task-1-2-a-static-ip-address-with-netplan-5-points">Task 1.2 - A Static IP Address with Netplan (5 points)</h3>
+<p>Create <code>01-netcfg.yaml</code> with the following configuration for the primary interface:</p>
+<ul>
+<li>Static address: <code>192.168.1.100/24</code>.</li>
+<li>Gateway: <code>192.168.1.1</code>.</li>
+<li>DNS servers: <code>8.8.8.8</code> and <code>1.1.1.1</code>.</li>
+</ul>
+<p><strong>Hints:</strong> Netplan files normally live in <code>/etc/netplan/</code>. YAML indentation matters. Find the real interface name using <code>ip link</code>; examples include <code>eth0</code>, <code>ens33</code>, and <code>enp0s3</code>.</p>
+<h3 id="task-1-3-connectivity-tests-5-points">Task 1.3 - Connectivity Tests (5 points)</h3>
+<p>Write <code>test_connectivity.sh</code> to send five ping packets to <code>8.8.8.8</code>, send five packets to <code>google.com</code>, test DNS resolution for <code>github.com</code>, and save the results in <code>connectivity_report.txt</code>.</p>
+<p><strong>Hints:</strong> Use <code>ping -c 5</code> and <code>nslookup</code> or <code>dig</code>. Append output with <code>&gt;&gt;</code>.</p>
+<h3 id="task-1-4-ports-and-connections-5-points">Task 1.4 - Ports and Connections (5 points)</h3>
+<p>Display all listening TCP ports, current established connections, and the processes listening on ports 80 and 443. Save the output in <code>ports_status.txt</code>.</p>
+<p><strong>Hints:</strong> Use <code>netstat -tuln</code> or <code>ss -tuln</code>. For processes, use <code>netstat -tulnp</code> or <code>ss -tulnp</code>; sudo may be required. Use <code>grep</code> to filter output. The <code>-u</code> examples include UDP as well as TCP; select the transport relevant to the task.</p>
+<h2 id="lab-02">Lab 2 - Troubleshooting Network Problems (25 points)</h2>
+<p>Your production server has a problem: users cannot access the website. Reproduce tests in a suitable lab rather than changing a production host without a plan.</p>
+<h3 id="task-2-1-traffic-analysis-with-tcpdump-8-points">Task 2.1 - Traffic Analysis with tcpdump (8 points)</h3>
+<p>Capture HTTP traffic on port 80 for 30 seconds. Capture DNS traffic separately. Save <code>http_capture.pcap</code> and <code>dns_capture.pcap</code>, then describe your observations in <code>tcpdump_analysis.txt</code>.</p>
+<p><strong>Original example commands:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>sudo tcpdump -i [interface] port 80 -w http_capture.pcap -c 100
+sudo tcpdump -i [interface] port 53 -w dns_capture.pcap -c 50</code></pre></div>
+<p><strong>Hints:</strong> Find the interface using <code>ip link</code>. Read a capture with <code>tcpdump -r http_capture.pcap</code>. The original hint gives this more specific IPv4/TCP payload filter:</p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>sudo tcpdump -i eth0 &#x27;tcp port 80 and (((ip[2:2] - ((ip[0]&amp;0xf)&lt;&lt;2)) - ((tcp[12]&amp;0xf0)&gt;&gt;2)) != 0)&#x27;</code></pre></div>
+<p><strong>Editorial note:</strong> Replace <code>[interface]</code> with an actual name. <code>-c 100</code> stops after 100 packets, not 30 seconds. To satisfy the stated duration, use a timed capture such as <code>sudo timeout 30 tcpdump -i eth0 port 80 -w http_capture.pcap</code>. Generate relevant traffic during the capture. Keep raw captures private when they contain credentials, browsing activity, or unrelated host data.</p>
+<h3 id="task-2-2-wireshark-analysis-7-points">Task 2.2 - Wireshark Analysis (7 points)</h3>
+<p>Use the captures from Task 2.1 to answer:</p>
+<ol>
+<li>How many TCP connections were established?</li>
+<li>How many DNS queries were captured, and for which domains?</li>
+<li>Is there evidence of packet loss? Inspect TCP retransmissions.</li>
+<li>What is the average response round-trip time (RTT)?</li>
+</ol>
+<p>Save answers in <code>wireshark_analysis.txt</code> and include relevant Wireshark screenshots.</p>
+<p><strong>Hints:</strong> Open <code>wireshark http_capture.pcap</code>. Use Statistics &gt; Conversations &gt; TCP. Filter retransmissions with <code>tcp.analysis.retransmission</code>. If the GUI is unavailable, use <code>tshark</code>.</p>
+<p><strong>Editorial note:</strong> Capture gaps and reordering can also affect retransmission analysis. Explain how you measured RTT and how many samples support the average.</p>
+<h3 id="task-2-3-connection-tests-with-telnet-5-points">Task 2.3 - Connection Tests with Telnet (5 points)</h3>
+<p>Write <code>port_check.sh</code> to test and report whether the web server on port 80, SSH on port 22, and MySQL on port 3306 are reachable from a client outside the service host.</p>
+<p><strong>Hints:</strong> <code>telnet localhost 80</code> checks a local port. <code>nc -zv localhost 80</code> is an alternative. Use <code>timeout 3 telnet localhost 3306</code> to limit waiting. Replace localhost with the actual service address for the external-client requirement.</p>
+<h3 id="task-2-4-the-osi-model-and-troubleshooting-5-points">Task 2.4 - The OSI Model and Troubleshooting (5 points)</h3>
+<p>Create <code>osi_troubleshooting.md</code>. Briefly explain each of the seven OSI layers in one or two lines. For a user who cannot access a website, describe the checks from Layer 1 through Layer 7 and give at least one Linux tool or command for each layer.</p>
+<p><strong>Hints:</strong> Physical: cable, link, LEDs. Data Link: MAC address, switch, ARP. Network: IP, routing, ping. Transport: TCP/UDP, ports, netstat. Some session and presentation functions are implemented within the application stack; explain what your proposed test actually observes.</p>
+<h2 id="lab-03">Lab 3 - Network Security (20 points)</h2>
+<p>The company wants to improve server security.</p>
+<h3 id="task-3-1-firewall-configuration-with-ufw-or-iptables-10-points">Task 3.1 - Firewall Configuration with UFW or iptables (10 points)</h3>
+<p>Write <code>setup_firewall.sh</code> to enable the firewall, allow SSH on port 22 only from the local address/network, allow HTTP on port 80 and HTTPS on port 443 from anywhere, block other incoming traffic, allow outgoing traffic, and save the active rules in <code>firewall_rules.txt</code>.</p>
+<p><strong>Original UFW hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>sudo ufw enable
+sudo ufw allow 80/tcp
+sudo ufw allow from 192.168.1.0/24 to any port 22
+sudo ufw status numbered &gt; firewall_rules.txt</code></pre></div>
+<p><strong>Original iptables hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -A INPUT -p tcp -s 192.168.1.0/24 --dport 22 -j ACCEPT
+sudo iptables -L -n &gt; firewall_rules.txt</code></pre></div>
+<p><strong>Editorial note:</strong> These are partial hints, not a complete policy. Preserve your actual administrative access before enabling restrictions. Existing broad SSH rules can defeat the intended restriction. Review rule ordering and established-connection handling when using iptables.</p>
+<h3 id="task-3-2-monitoring-suspicious-traffic-10-points">Task 3.2 - Monitoring Suspicious Traffic (10 points)</h3>
+<p>Write <code>monitor_suspicious.sh</code> to identify addresses with more than 100 connections, extract failed SSH logins, list addresses communicating with unusual ports above 10000, and save a full report in <code>security_report.txt</code>.</p>
+<p><strong>Hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>netstat -ntu | awk &#x27;{print $5}&#x27; | cut -d: -f1 | sort | uniq -c | sort -n
+sudo grep &quot;Failed password&quot; /var/log/auth.log</code></pre></div>
+<p>Use <code>wc -l</code> to count lines. Authentication logs may be in <code>/var/log/auth.log</code> or <code>/var/log/secure</code>.</p>
+<p><strong>Editorial note:</strong> Define whether a port is a local service port or a remote client port. High ephemeral client ports are normal. A connection-count threshold is a reason to investigate, not proof of an attack. The simple parsing hint needs adaptation for IPv6.</p>
+<h2 id="lab-04">Lab 4 - DNS, Routing, and Topology (15 points)</h2>
+<p>Your team wants internal name resolution and a documented network design.</p>
+<h3 id="task-4-1-dns-resolution-configuration-5-points">Task 4.1 - DNS Resolution Configuration (5 points)</h3>
+<p>Add these entries to <code>/etc/hosts</code>:</p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>192.168.1.10 app.local
+192.168.1.11 db.local
+192.168.1.12 cache.local</code></pre></div>
+<p>Change the DNS server to <code>1.1.1.1</code> using Netplan or systemd-resolved. Test <code>ping app.local</code> and verify that <code>nslookup google.com</code> uses the new resolver path. Deliver the configuration and <code>dns_config.txt</code>.</p>
+<p><strong>Hints:</strong> Editing <code>/etc/hosts</code> does not require a restart. Global systemd-resolved configuration is in <code>/etc/systemd/resolved.conf</code>; after an appropriate configuration change, restart <code>systemd-resolved</code>.</p>
+<p><strong>Editorial note:</strong> <code>/etc/hosts</code> is local name resolution, not an authoritative DNS zone. A local stub may appear in nslookup while forwarding to the configured upstream resolver. <code>.local</code> is reserved for multicast DNS and is retained here to match the source exercise.</p>
+<h3 id="task-4-2-routing-analysis-5-points">Task 4.2 - Routing Analysis (5 points)</h3>
+<p>Display the complete routing table, trace the path to <code>8.8.8.8</code>, report every observed hop and its latency, and explain in two or three sentences what a router does. Save <code>routing_analysis.txt</code>.</p>
+<p><strong>Hints:</strong> <code>ip route show</code> or <code>route -n</code>; <code>traceroute 8.8.8.8</code> or <code>mtr 8.8.8.8</code>; install traceroute if needed with <code>sudo apt install traceroute</code>. Use <code>ip route show table all</code> when policy-routing tables are relevant.</p>
+<h3 id="task-4-3-network-topology-5-points">Task 4.3 - Network Topology (5 points)</h3>
+<p>Create <code>network_topology.txt</code> or a diagram describing this hypothetical company network:</p>
+<ul>
+<li>One router/default gateway: <code>192.168.1.1</code>.</li>
+<li>One switch.</li>
+<li>Web, database, and cache servers: <code>192.168.1.10</code>, <code>.11</code>, and <code>.12</code>.</li>
+<li>Ten user computers, described in the source as the range <code>192.168.1.100-110</code>.</li>
+</ul>
+<p>Draw the connections, using ASCII if desired, and explain what happens if the switch fails.</p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>        Internet
+            |
+         [Router]
+            |
+         [Switch]
+         /  |  \
+       Web DB Cache</code></pre></div>
+<p><strong>Hints:</strong> Common topologies include star, bus, ring, and mesh. This example is a star because devices connect to the switch.</p>
+<p><strong>Editorial note:</strong> The inclusive range <code>.100-.110</code> has eleven addresses. For exactly ten computers, allocate <code>.100-.109</code> and reserve <code>.110</code>.</p>
+<h2 id="lab-05">Lab 5 - Protocols and Performance (10 bonus points)</h2>
+<h3 id="task-5-1-tcp-versus-udp-5-points">Task 5.1 - TCP versus UDP (5 points)</h3>
+<p>Create <code>tcp_vs_udp.md</code> with at least five major differences. Choose and justify a transport for video streaming, FTP file transfer, DNS queries, HTTP/HTTPS browsing, VoIP, and database queries. Use netstat to show the protocols currently used on your host.</p>
+<p><strong>Original hints:</strong> TCP is connection-oriented and reliable; UDP is connectionless and has no built-in delivery guarantee. The original also labels TCP &quot;slow&quot; and UDP &quot;fast&quot;; explain why that simplification does not determine actual application performance. <code>netstat -tuln</code> uses <code>t</code> for TCP and <code>u</code> for UDP.</p>
+<h3 id="task-5-2-network-performance-testing-5-points">Task 5.2 - Network Performance Testing (5 points)</h3>
+<p>Write <code>network_performance.sh</code> to test throughput between two servers with iperf3, measure latency and jitter, calculate packet loss, and save <code>performance_report.txt</code>.</p>
+<p><strong>Hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>sudo apt install iperf3
+iperf3 -s
+iperf3 -c &lt;server-ip&gt;
+iperf3 -c &lt;server-ip&gt; -u -b 100M</code></pre></div>
+<p>If two servers are unavailable, use localhost and explain that it does not measure a physical network link.</p>
+<h2 id="lab-06">Lab 6 - SSL/TLS and HTTPS (15 points)</h2>
+<p>The company wants to protect its website with HTTPS.</p>
+<h3 id="task-6-1-a-self-signed-certificate-5-points">Task 6.1 - A Self-Signed Certificate (5 points)</h3>
+<p>Generate a private key and a self-signed certificate for <code>myapp.local</code> using OpenSSL. Inspect the validity period, subject, and issuer. Save <code>myapp.key</code>, <code>myapp.crt</code>, and a command/explanation report named <code>ssl_generation.txt</code>. The original task says <code>scenario_1/certs/</code>; its delivery tree uses <code>scenario_1_SSL/certs/</code>. This collection uses the Lab 6 directory.</p>
+<p><strong>Original hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>openssl req -x509 -newkey rsa:2048 -nodes \
+  -keyout myapp.key -out myapp.crt -days 365 \
+  -subj &quot;/C=IR/ST=Tehran/L=Tehran/O=MyCompany/CN=myapp.local&quot;
+openssl x509 -in myapp.crt -text -noout
+openssl rsa -in myapp.key -check</code></pre></div>
+<p><strong>Editorial note:</strong> Add a SAN for hostname validation and use <code>-noout</code> for a private-key check. Generate the key locally; do not publish it in a public repository.</p>
+<h3 id="task-6-2-testing-https-with-curl-3-points">Task 6.2 - Testing HTTPS with curl (3 points)</h3>
+<p>Write <code>test_https.sh</code> to request a real HTTPS website such as <code>https://google.com</code>, inspect its certificate chain, display the negotiated TLS version, and check the expiration date. Save <code>https_test_report.txt</code>.</p>
+<p><strong>Original hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>curl -vI https://google.com 2&gt;&amp;1 | grep -E &quot;SSL|TLS|expire&quot;
+curl --insecure -v https://expired.badssl.com 2&gt;&amp;1
+openssl s_client -connect google.com:443 -showcerts
+echo | openssl s_client -connect google.com:443 2&gt;/dev/null | \
+  openssl x509 -noout -dates</code></pre></div>
+<p><strong>Editorial note:</strong> Supply SNI and hostname verification when inspecting a named service. <code>--insecure</code> disables verification and is only a controlled comparison here. A timeout is not a certificate-validation error.</p>
+<h3 id="task-6-3-a-python-https-server-4-points">Task 6.3 - A Python HTTPS Server (4 points)</h3>
+<p>Write <code>https_server.py</code> using a Python HTTP server protected by TLS. Use the certificate from Task 6.1, listen on port 8443, and test with curl. Save the commands and actual results in <code>https_server_test.txt</code>.</p>
+<p><strong>Original hint:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>import http.server, ssl
+server_address = (&#x27;localhost&#x27;, 8443)
+httpd = http.server.HTTPServer(
+    server_address, http.server.SimpleHTTPRequestHandler)
+httpd.socket = ssl.wrap_socket(
+    httpd.socket, server_side=True,
+    certfile=&#x27;myapp.crt&#x27;, keyfile=&#x27;myapp.key&#x27;,
+    ssl_version=ssl.PROTOCOL_TLS)
+print(&quot;Server running on https://localhost:8443&quot;)
+httpd.serve_forever()</code></pre></div>
+<p>Test with <code>curl -k https://localhost:8443</code> for the source&#x27;s insecure local demonstration.</p>
+<p><strong>Editorial note:</strong> <code>ssl.wrap_socket</code> was removed in Python 3.12. The provided solution uses <code>SSLContext.wrap_socket</code>. Serve a dedicated public directory so the private key cannot be downloaded. Prefer explicit certificate trust and the correct hostname when validating the local service.</p>
+<h3 id="task-6-4-tls-best-practices-3-points">Task 6.4 - TLS Best Practices (3 points)</h3>
+<p>Create <code>ssl_best_practices.md</code> explaining SSL versus TLS, self-signed versus CA-signed certificates, five best practices, and why ordinary HTTP is unsafe compared with HTTPS.</p>
+<p><strong>Hints:</strong> TLS supersedes SSL; CA means Certificate Authority. Consider maintained TLS versions, strong ciphers, and certificate validation. Explain that HTTPS protects the connection rather than guaranteeing that the application has no security flaws.</p>
+<h2 id="lab-07">Lab 7 - FTP and File Transfer (10 points)</h2>
+<p>The team needs to transfer files between servers.</p>
+<h3 id="task-7-1-an-ftp-server-with-vsftpd-5-points">Task 7.1 - An FTP Server with vsftpd (5 points)</h3>
+<p>If installing vsftpd is impossible, provide a theoretical answer with documentation. Otherwise write <code>setup_ftp.sh</code> to install vsftpd, create a configuration for anonymous access, create a dedicated FTP user, and include start/stop commands. Deliver <code>setup_ftp.sh</code>, <code>vsftpd.conf</code>, and <code>ftp_setup_guide.txt</code>.</p>
+<p><strong>Original hints:</strong> Install with <code>sudo apt install vsftpd</code>; the configuration is <code>/etc/vsftpd.conf</code>.</p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+chroot_local_user=YES</code></pre></div>
+<p><strong>Editorial note:</strong> The requirement says anonymous access, but <code>anonymous_enable=NO</code> disables it. Document which policy you implement. The supplied local lab solution uses read-only anonymous access and a dedicated account for uploads. Plain FTP is unencrypted.</p>
+<h3 id="task-7-2-ftp-client-operations-3-points">Task 7.2 - FTP Client Operations (3 points)</h3>
+<p>Write <code>ftp_operations.sh</code> to connect to an FTP server (the source suggests <code>ftp.ubuntu.com</code>), list files, download a file, and upload one if permitted. Document commands and explanations in <code>ftp_operations_guide.txt</code>.</p>
+<p><strong>Hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>ftp ftp.ubuntu.com
+ls
+get filename
+put filename
+bye</code></pre></div>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>wget ftp://ftp.ubuntu.com/path/to/file
+curl -u username:password ftp://server.com/file.txt</code></pre></div>
+<p><strong>Editorial note:</strong> Public mirrors normally do not permit uploads. Use an authorized local server for that test. Prompt for a password rather than storing real credentials in scripts or shell history.</p>
+<h3 id="task-7-3-ftp-sftp-and-scp-2-points">Task 7.3 - FTP, SFTP, and SCP (2 points)</h3>
+<p>Create <code>file_transfer_comparison.md</code> explaining differences, advantages, limitations, suitable scenarios, and one command for each method.</p>
+<p><strong>Hints:</strong> FTP commonly uses control port 21; SFTP and SCP use SSH, commonly port 22. Basic FTP is insecure on a public network. Current OpenSSH scp uses SFTP by default; distinguish the tool from its legacy protocol.</p>
+<h2 id="lab-08">Lab 8 - HTTP and Web Services (10 points)</h2>
+<p>The company&#x27;s API needs configuration and testing.</p>
+<h3 id="task-8-1-a-python-or-nginx-web-server-4-points">Task 8.1 - A Python or Nginx Web Server (4 points)</h3>
+<p>Choose one option:</p>
+<ul>
+<li><strong>A - Python:</strong> Write a simple HTTP server on port 8080 that serves a small HTML page.</li>
+<li><strong>B - Nginx:</strong> Write a configuration for a static website, a <code>myapp.local</code> virtual host, and custom error pages.</li>
+</ul>
+<p>Deliver <code>http_server.py</code> or <code>nginx_config.conf</code>, plus <code>http_server_guide.txt</code>.</p>
+<p><strong>Original Python hint:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>import http.server
+import socketserver
+PORT = 8080
+Handler = http.server.SimpleHTTPRequestHandler
+with socketserver.TCPServer((&quot;&quot;, PORT), Handler) as httpd:
+    print(f&quot;Server at http://localhost:{PORT}&quot;)
+    httpd.serve_forever()</code></pre></div>
+<p><strong>Original Nginx hint:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>server {
+    listen 80;
+    server_name myapp.local;
+    root /var/www/myapp;
+    index index.html;
+}</code></pre></div>
+<h3 id="task-8-2-http-methods-and-api-testing-4-points">Task 8.2 - HTTP Methods and API Testing (4 points)</h3>
+<p>Write <code>test_http_methods.sh</code> to test GET, POST, PUT, and DELETE with curl against a public demonstration API such as JSONPlaceholder. Inspect response codes (examples in the source are 200, 404, and 500), display response headers, and save <code>http_methods_report.txt</code>.</p>
+<p><strong>Hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>curl -X GET https://jsonplaceholder.typicode.com/posts/1
+curl -X POST https://jsonplaceholder.typicode.com/posts \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{&quot;title&quot;:&quot;test&quot;,&quot;body&quot;:&quot;content&quot;,&quot;userId&quot;:1}&#x27;
+curl -i https://jsonplaceholder.typicode.com/posts/1
+curl -o /dev/null -s -w &quot;%{http_code}\n&quot; https://google.com</code></pre></div>
+<p>Record actual codes; do not invent a 500 response. JSONPlaceholder simulates writes rather than persisting your changes.</p>
+<h3 id="task-8-3-http-response-headers-2-points">Task 8.3 - HTTP Response Headers (2 points)</h3>
+<p>Request several real websites and analyze <code>Content-Type</code>, <code>Server</code>, <code>Cache-Control</code>, <code>X-Frame-Options</code>, and <code>Content-Security-Policy</code>. Explain each header in <code>http_headers_analysis.txt</code>.</p>
+<p><strong>Hints:</strong> <code>curl -I https://github.com</code>, <code>curl -I https://google.com</code>, and <code>curl -I https://stackoverflow.com</code>. Headers serve security or performance purposes, but they may be absent or differ between redirects and final responses.</p>
+<h2 id="lab-09">Lab 9 - DNS, CDNs, and BIND (12 points)</h2>
+<h3 id="task-9-1-dns-record-types-4-points">Task 9.1 - DNS Record Types (4 points)</h3>
+<p>Create <code>dns_records_explained.md</code> explaining A, AAAA, CNAME, MX, TXT, NS, and SOA. Give a real use case for each and obtain real examples with dig or nslookup.</p>
+<p><strong>Hints:</strong> <code>dig google.com A</code>, <code>AAAA</code>, <code>MX</code>, <code>TXT</code>, and <code>NS</code>. A maps to IPv4, AAAA to IPv6, CNAME is an alias, MX identifies mail exchangers, and TXT is used for information such as SPF and DKIM. Select another domain if a requested record is absent or a query fails; preserve the failed observation.</p>
+<h3 id="task-9-2-dns-query-analysis-4-points">Task 9.2 - DNS Query Analysis (4 points)</h3>
+<p>Write <code>dns_analyzer.sh</code> to query a list including <code>google.com</code>, <code>github.com</code>, <code>stackoverflow.com</code>, and <code>linkedin.com</code>. Extract IP addresses, TTLs, and answering DNS servers, measure response time, and save a table in <code>dns_analysis_report.txt</code>.</p>
+<p><strong>Hints:</strong> <code>dig +short google.com</code>, <code>dig google.com | grep &quot;Query time&quot;</code>, and <code>time dig google.com &gt; /dev/null</code>. Distinguish the answering resolver from an authoritative name server and DNS query time from page-load time.</p>
+<h3 id="task-9-3-cdn-and-caching-2-points">Task 9.3 - CDN and Caching (2 points)</h3>
+<p>Create <code>cdn_explanation.md</code> explaining what a CDN does, how it can reduce latency, the difference between origin and edge servers, and an observed website/CDN example using curl response headers.</p>
+<p><strong>Hints:</strong> CDN means Content Delivery Network. The source mentions Cloudflare, Akamai, and AWS CloudFront. Inspect headers such as <code>X-Cache</code>, <code>CF-Cache-Status</code>, and <code>X-Served-By</code>:</p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>curl -I https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js</code></pre></div>
+<p>Interpret headers according to the provider; a missing vendor-specific header does not prove that no CDN is used.</p>
+<h3 id="task-9-4-a-sample-bind-configuration-2-points-theoretical">Task 9.4 - A Sample BIND Configuration (2 points; theoretical)</h3>
+<p>Create <code>named.conf.local</code>, <code>db.example.local</code>, and <code>bind_explanation.txt</code>. Define a zone for <code>example.local</code>, A records for <code>www</code>, <code>mail</code>, and <code>ftp</code>, an MX record for mail, and an NS record for the name server. Installation is <strong>not required</strong>.</p>
+<p><strong>Original zone hint:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>$TTL 604800
+@ IN SOA ns1.example.local. admin.example.local. (
+    3       ; Serial
+    604800  ; Refresh
+    86400   ; Retry
+    2419200 ; Expire
+    604800  ; Negative Cache TTL
+)
+@    IN NS ns1.example.local.
+@    IN A 192.168.1.10
+www  IN A 192.168.1.10
+mail IN A 192.168.1.20
+@    IN MX 10 mail.example.local.</code></pre></div>
+<p>The hint is partial; include the requested ftp and name-server address records. <code>.local</code> remains a lab-only source name with the multicast-DNS caveat.</p>
+<h2 id="lab-10">Lab 10 - SSH and Remote Management (10 points)</h2>
+<h3 id="task-10-1-ssh-key-authentication-3-points">Task 10.1 - SSH Key Authentication (3 points)</h3>
+<p>Generate an RSA 2048-bit SSH key pair, display the public key in the appropriate format, explain passwordless authentication, and write a convenient SSH client profile. Deliver <code>ssh_keys_guide.txt</code> and <code>ssh_config_sample</code>.</p>
+<p><strong>Original hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>ssh-keygen -t rsa -b 2048 -f ~/.ssh/mykey -N &quot;&quot;
+ssh-copy-id -i ~/.ssh/mykey.pub user@server</code></pre></div>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>Host myserver
+    HostName 192.168.1.10
+    User admin
+    IdentityFile ~/.ssh/mykey
+    Port 22</code></pre></div>
+<p>The empty passphrase is the source&#x27;s lab example. Protect real private keys and avoid overwriting an existing key. Do not publish private keys.</p>
+<h3 id="task-10-2-ssh-tunnels-4-points">Task 10.2 - SSH Tunnels (4 points)</h3>
+<p>Create <code>ssh_tunneling_guide.md</code> explaining local forwarding, remote forwarding, dynamic forwarding/SOCKS, an example for each, and a real use case for each.</p>
+<p><strong>Original hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>ssh -L 8080:localhost:80 user@server
+ssh -R 9000:localhost:3000 user@server
+ssh -D 1080 user@server</code></pre></div>
+<p>Local port 8080 forwards to port 80 from the server&#x27;s perspective. Remote server port 9000 forwards to port 3000 from the client&#x27;s perspective. Dynamic forwarding creates a SOCKS proxy on local port 1080. Explain which machine listens and which connects to the destination.</p>
+<h3 id="task-10-3-ssh-hardening-3-points">Task 10.3 - SSH Hardening (3 points)</h3>
+<p>Create <code>sshd_config_hardened</code> and <code>ssh_security_guide.txt</code>. Explain which settings improve security, why password and root login may be disabled, and how failed login attempts are monitored.</p>
+<p><strong>Original hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+Port 2222
+MaxAuthTries 3</code></pre></div>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>grep &quot;Failed password&quot; /var/log/auth.log</code></pre></div>
+<p>Validate the configuration and a separate key-based login before restricting a real SSH service. A different port does not replace secure authentication.</p>
+<h2 id="lab-11">Lab 11 - Monitoring and Logging (8 points)</h2>
+<h3 id="task-11-1-network-monitoring-3-points">Task 11.1 - Network Monitoring (3 points)</h3>
+<p>Write <code>network_monitor.sh</code> to show interface statistics every five seconds, calculate upload/download usage, count active connections, identify the five addresses with the most traffic, and append results to <code>monitoring_log.txt</code>.</p>
+<p><strong>Hints:</strong> <code>ifstat -i eth0 1 5</code>, <code>cat /proc/net/dev</code>, and <code>ss -ntu | wc -l</code>. If specialist tools are unavailable, use netstat and <code>/proc/net/dev</code>.</p>
+<p><strong>Editorial note:</strong> Counters are cumulative bytes. Compute differences over an interval for rates. Counting connections does not identify the most traffic by bytes. Exclude output headers when counting sockets and define the scope of active connections.</p>
+<h3 id="task-11-2-log-analysis-3-points">Task 11.2 - Log Analysis (3 points)</h3>
+<p>Write <code>analyze_logs.sh</code> to find network-related logs under <code>/var/log</code>, extract the <strong>10 most recent events</strong>, extract and count IP addresses, identify suspicious patterns such as repeated failed attempts, and save <code>log_analysis_report.txt</code>.</p>
+<p><strong>Hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>ls -lh /var/log/syslog /var/log/kern.log /var/log/auth.log
+grep -Eo &#x27;([0-9]{1,3}\.){3}[0-9]{1,3}&#x27; /var/log/auth.log | sort | uniq -c</code></pre></div>
+<p>If access is unavailable, create a clearly labeled sample log. Explain supported timestamp formats, compressed files, and journal limitations.</p>
+<h3 id="task-11-3-a-terminal-dashboard-2-points">Task 11.3 - A Terminal Dashboard (2 points)</h3>
+<p>Write <code>dashboard.sh</code> showing interfaces/IPs, an active connection count, open ports, DNS servers, and the five most recent log entries. Refresh every ten seconds with watch or a loop. Deliver the script and <code>dashboard_screenshot.txt</code> describing its output.</p>
+<p><strong>Original hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>while true; do
+    clear
+    echo &quot;=== Network Dashboard ===&quot;
+    ip -br addr
+    echo &quot;Connections: $(ss -ntu | wc -l)&quot;
+    sleep 10
+done
+echo -e &quot;\e[32mGreen Text\e[0m&quot;
+echo -e &quot;\e[31mRed Text\e[0m&quot;</code></pre></div>
+<h2 id="lab-12">Lab 12 - Practical Troubleshooting (5 points)</h2>
+<h3 id="task-12-1-a-website-cannot-be-reached-2-points">Task 12.1 - A Website Cannot Be Reached (2 points)</h3>
+<p>For &quot;a user cannot access example.com&quot;, create <code>troubleshoot_website.md</code>. List debugging steps in order, commands for each step, possible root causes, and the solution for each cause.</p>
+<p><strong>Hints:</strong> Check physical connectivity, IP configuration, DNS, routing, firewall, and the application. Explain each result rather than assuming that one failed probe proves the website is down.</p>
+<h3 id="task-12-2-slow-network-performance-2-points">Task 12.2 - Slow Network Performance (2 points)</h3>
+<p>Write <code>diagnose_slow_network.sh</code> to test latency to several external servers, inspect packet loss, measure DNS resolution time, check MTU, and identify a possible bottleneck. Save <code>network_performance_diagnosis.txt</code>.</p>
+<p><strong>Original hints:</strong></p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>ping -c 10 8.8.8.8 | grep avg
+ip link show | grep mtu
+ping -M do -s 1472 8.8.8.8
+time dig google.com</code></pre></div>
+<p>A failed ICMP/MTU probe can be filtered. Separate observations from unconfirmed diagnoses.</p>
+<h3 id="task-12-3-ssh-timeouts-1-point">Task 12.3 - SSH Timeouts (1 point)</h3>
+<p>Create <code>timeout_troubleshooting.md</code> for an SSH connection that times out. List possible causes, a diagnostic command for each, proposed solutions, and a script that simulates the problem.</p>
+<p><strong>Hints:</strong> Firewall blocking, wrong IP/port, routing problems, a down server, or DNS failure. Test with:</p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>timeout 5 ssh user@server
+telnet server 22
+nc -zv -w 5 server 22</code></pre></div>
+<p>Keep the simulation confined to a lab. Distinguish timeout, explicit connection refusal, failed name resolution, and authentication rejection.</p>
+<h2 id="appendix-a-submission-and-documentation-instructions">Appendix A - Submission and Documentation Instructions</h2>
+<p>The source assignments ask students to upload an archive through their course panel. Use an English title containing the exercise name and the student&#x27;s first and last names; examples are <code>AmirMohammadMohammadi_network__01</code> and <code>AmirMohammadMohammadi_network__02</code>. Ask questions in the course&#x27;s Telegram group.</p>
+<p>For the original separate submissions, use <code>[Surname]_network_01/</code> and <code>[Surname]_network_02/</code> with the corresponding scenario subdirectories. Compress with:</p>
+<div class="codebox"><button class="copy" type="button" aria-label="Copy code">Copy</button><pre><code>zip -r [Surname]_network_01.zip [Surname]_network_01/
+zip -r [Surname]_network_02.zip [Surname]_network_02/</code></pre></div>
+<p>This unified collection instead uses <code>solutions/lab-01/</code> through <code>solutions/lab-12/</code>, with a source mapping in the collection manifest. The task filenames listed above identify the expected deliverables. Extra helper scripts and captured reports are retained where supplied. Store generated private keys locally and exclude them from public archives.</p>
+<p>Record all commands in <code>commands_history.txt</code>. Include screenshots where required. Some commands need sudo. If a package is missing, install it when appropriate and record the installation; otherwise explain the limitation and an alternative. Set a VM&#x27;s networking to NAT or bridged mode as appropriate. Localhost is accepted for many Assignment 02 tasks; public services, optional Docker (<code>docker run -d -p 8080:80 nginx</code>), and documented simulations are alternatives when hands-on execution is unavailable.</p>
+<p>The historical deadlines are &quot;by the start of Sunday&quot; for Assignment 01 and &quot;Wednesday next week&quot; for Assignment 02. The original files do not establish calendar dates here. The source encourages students to read hints, manuals, and documentation first, then search for relevant explanations and ask the instructor when needed. Understanding the concepts and documenting the work matter alongside execution.</p>
+<h2 id="appendix-b-original-grading-criteria">Appendix B - Original Grading Criteria</h2>
+<p><strong>Assignment 01:</strong> technical correctness 40%; documentation 30%; creativity 15%; code cleanliness/readability 15%.</p>
+<p><strong>Assignment 02:</strong> correct implementation 35%; documentation 30%; conceptual understanding 20%; code quality/readability/error handling 15%.</p>
+<h2 id="appendix-c-learning-resources-listed-in-the-source">Appendix C - Learning Resources Listed in the Source</h2>
+<ul>
+<li><a href="https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs">https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs</a></li>
+<li><a href="https://howhttps.works/">https://howhttps.works/</a></li>
+<li><a href="https://www.cloudflare.com/learning/dns/what-is-dns/">https://www.cloudflare.com/learning/dns/what-is-dns/</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04">https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04</a></li>
+<li><a href="https://www.ssh.com/academy/ssh/tunneling">https://www.ssh.com/academy/ssh/tunneling</a></li>
+<li><a href="https://www.ssh-audit.com/">https://www.ssh-audit.com/</a></li>
+<li><a href="https://www.tecmint.com/linux-network-monitoring-tools/">https://www.tecmint.com/linux-network-monitoring-tools/</a></li>
+<li><a href="https://www.wireshark.org/docs/">https://www.wireshark.org/docs/</a></li>
+<li><a href="https://curl.se/docs/httpscripting.html">https://curl.se/docs/httpscripting.html</a></li>
+<li><a href="https://www.redhat.com/sysadmin/beginners-guide-ssl-certificates">https://www.redhat.com/sysadmin/beginners-guide-ssl-certificates</a></li>
+<li><a href="https://www.cyberciti.biz/faq/">https://www.cyberciti.biz/faq/</a></li>
+<li><a href="https://linuxize.com/">https://linuxize.com/</a></li>
+</ul>
+<p>These links are retained from the original exercise list, rather than represented as newly verified recommendations. The chapter bibliography provides the technical references used for its explanations.</p></article></div></main><footer class="footer"><div class="wrap"><span>Networking for DevOps · Mohammad Fatahi</span><span>English edition · <a href="solutions.html#evidence">Provenance & evidence</a> · <a href="https://github.com/MohammadFatahi/networking-for-devops">View source ↗</a></span></div></footer></body></html>

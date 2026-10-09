@@ -1,0 +1,40 @@
+2026-10-09T01:30:10+03:30
+1. List public files
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0
+100     68   0     68   0      0   3028      0                              0
+100     68   0     68   0      0   2997      0                              0
+100     68   0     68   0      0   2902      0                              0
+-rw-r--r--    1 0        0              16 Oct 08 22:00 sample.txt
+2. Download sample.txt
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0
+100     16 100     16   0      0   1246      0                              0
+100     16 100     16   0      0   1217      0                              0
+100     16 100     16   0      0   1173      0                              0
+FTP sample file
+3. Upload using the dedicated account
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0
+100     17   0      0 100     17      0    142                              0
+100     17   0      0 100     17      0    141                              0
+100     17   0      0 100     17      0    141                              0
+4. Download the uploaded file
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+  0      0   0      0   0      0      0      0                              0
+100     17 100     17   0      0    139      0                              0
+100     17 100     17   0      0    139      0                              0
+100     17 100     17   0      0    139      0                              0
+Upload and download match.

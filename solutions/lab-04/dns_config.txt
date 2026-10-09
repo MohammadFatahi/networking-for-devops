@@ -1,0 +1,76 @@
+
+1. Lines to add to /etc/hosts
+-----------------------------
+Append these lines (no service restart is required):
+
+192.168.1.10  app.local
+192.168.1.11  db.local
+192.168.1.12  cache.local
+
+Check:
+  ping -c 2 app.local
+
+  PING app.local (192.168.1.10) ...
+The first line proves the hosts file resolved the name to 192.168.1.10.
+ICMP itself can still time out, because 192.168.1.10 is the company address
+in the scenario and this workstation is on 192.0.2.0/24, not on
+192.168.1.0/24. Name resolution and reachability are different tests.
+
+Current /etc/hosts on this workstation does not contain app.local, db.local,
+or cache.local (grep returned no match). The lines above are the change to apply
+on the server. They were not written into the system file from this session
+because editing /etc/hosts requires root.
+
+2. DNS server 1.1.1.1
+---------------------
+Option A, Netplan (already in scenario_1/01-netcfg.yaml):
+
+  nameservers:
+    addresses:
+      - 8.8.8.8
+      - 1.1.1.1
+
+Then:
+  sudo netplan generate
+  sudo netplan apply
+
+Option B, systemd-resolved. Edit /etc/systemd/resolved.conf:
+
+  [Resolve]
+  DNS=1.1.1.1
+  FallbackDNS=8.8.8.8
+
+Then:
+  sudo systemctl restart systemd-resolved
+  resolvectl status
+
+What this host uses right now (resolvectl status):
+  Link wlp2s0:     Current DNS Server 192.0.2.1
+  Link tailscale0: DNS 198.51.100.11 and 2001:db8:1::53
+  /etc/resolv.conf nameserver 127.0.0.53
+                   (stub resolver; it forwards to the uplink DNS above)
+
+3. Tests
+--------
+New resolver, explicit query (does not replace the system DNS).
+
+Command: nslookup google.com 1.1.1.1
+
+Server:		1.1.1.1
+Address:	1.1.1.1#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 142.251.13.139
+Address: 142.251.13.102
+Address: 142.251.13.113
+Address: 142.251.13.101
+Address: 142.251.13.138
+Address: 142.251.13.100
+Address: 2a00:1450:4001:c13::66
+Address: 2a00:1450:4001:c13::8a
+Address: 2a00:1450:4001:c13::64
+Address: 2a00:1450:4001:c13::8b
+
+The "Server:" line is 1.1.1.1, so this lookup used the DNS server required
+by the assignment, and google.com resolved.

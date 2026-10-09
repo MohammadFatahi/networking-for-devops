@@ -1,0 +1,24 @@
+Task 7.1 (original Task 2.1)
+Run from this lab directory:
+bash setup_ftp.sh
+The script requests sudo authentication and then a password for network2student.
+Stop: sudo systemctl stop vsftpd
+Start: sudo systemctl start vsftpd
+Check: systemctl status vsftpd --no-pager
+
+The configuration is copied to /etc/vsftpd.conf. The previous version is kept in
+/etc/vsftpd.conf.network2-backup.
+The service binds to localhost on the usual FTP control port, 21.
+
+The task requests anonymous access, but the hint contains anonymous_enable=NO.
+This example selects YES to demonstrate anonymous access. An anonymous user
+can download the public /srv/ftp/sample.txt file but cannot upload.
+NO disables anonymous login.
+local_enable permits local users; write_enable permits write operations subject to permissions.
+chroot_local_user confines the user to the home-directory filesystem view.
+The home directory belongs to root; network2student can write only in upload.
+The userlist admits only network2student and the configured anonymous accounts.
+This prevents other system accounts from logging in through FTP.
+
+Installation/start results are recorded in ftp_setup_test.txt.
+The service was stopped after testing; start it again before a new test.

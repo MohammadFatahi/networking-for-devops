@@ -1,0 +1,5 @@
+Host myserver
+    HostName 192.0.2.10
+    User mohammad
+    IdentityFile ~/.ssh/mykey
+    Port 22

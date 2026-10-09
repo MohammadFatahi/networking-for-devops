@@ -1,0 +1,93 @@
+Throughput:
+
+Connecting to host 198.51.100.10, port 5201
+[  5] local 198.51.100.19 port 52140 connected to 198.51.100.10 port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec   768 KBytes  6.29 Mbits/sec    0    201 KBytes
+[  5]   1.00-2.00   sec   384 KBytes  3.15 Mbits/sec    0    221 KBytes
+[  5]   2.00-3.00   sec   256 KBytes  2.10 Mbits/sec    0    241 KBytes
+[  5]   3.00-4.00   sec   640 KBytes  5.24 Mbits/sec    0    263 KBytes
+[  5]   4.00-5.00   sec   384 KBytes  3.15 Mbits/sec    0    283 KBytes
+[  5]   5.00-6.00   sec   384 KBytes  3.15 Mbits/sec    0    303 KBytes
+[  5]   6.00-7.00   sec   896 KBytes  7.34 Mbits/sec    0    325 KBytes
+[  5]   7.00-8.00   sec   384 KBytes  3.14 Mbits/sec    0    349 KBytes
+[  5]   8.00-9.00   sec   512 KBytes  4.20 Mbits/sec    0    405 KBytes
+[  5]   9.00-10.00  sec   640 KBytes  5.24 Mbits/sec    0    480 KBytes
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.00  sec  5.12 MBytes  4.30 Mbits/sec    0            sender
+[  5]   0.00-11.42  sec  4.38 MBytes  3.21 Mbits/sec                  receiver
+
+iperf Done.
+
+
+During this recorded test, the client sent an average of about:
+4.30 Mbps
+
+The receiver reported about:
+3.21 Mbps
+
+during its reported interval.
+The measured throughput was a few Mbit/s in this test, relatively low for the intended workload.
+The rate also varied:
+Second 1 → 6.29 Mbps
+Second 2 → 3.15 Mbps
+Second 3 → 2.10 Mbps
+Second 4 → 5.24 Mbps
+...
+Second 7 → 7.34 Mbps
+
+These samples show variation during the measurement interval.
+Another observation:
+Retr = 0
+
+In this TCP run, iperf3 reported no retransmissions at the sender.
+
+
+
+Packet loss and Latency:
+
+PING 198.51.100.10 (198.51.100.10) 56(84) bytes of data.
+64 bytes from 198.51.100.10: icmp_seq=1 ttl=64 time=155 ms
+64 bytes from 198.51.100.10: icmp_seq=2 ttl=64 time=148 ms
+64 bytes from 198.51.100.10: icmp_seq=3 ttl=64 time=315 ms
+64 bytes from 198.51.100.10: icmp_seq=4 ttl=64 time=144 ms
+
+--- 198.51.100.10 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3002ms
+rtt min/avg/max/mdev = 144.483/190.430/315.201/72.128 ms
+The ICMP request/reply round trip averaged about 190 ms in these samples.
+This RTT is relatively high for interactive use.
+4 packets transmitted
+4 received
+0% packet loss
+
+
+
+Jitter:
+
+Connecting to host 198.51.100.10, port 5201
+[  5] local 198.51.100.19 port 35445 connected to 198.51.100.10 port 5201
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+[  5]   0.00-1.00   sec  11.9 MBytes   100 Mbits/sec  10185
+[  5]   1.00-2.00   sec  11.9 MBytes   100 Mbits/sec  10179
+[  5]   2.00-3.00   sec  11.9 MBytes   100 Mbits/sec  10179
+[  5]   3.00-4.00   sec  11.9 MBytes   100 Mbits/sec  10180
+[  5]   4.00-5.00   sec  11.9 MBytes   100 Mbits/sec  10178
+[  5]   5.00-6.00   sec  11.9 MBytes   100 Mbits/sec  10180
+[  5]   6.00-7.00   sec  11.9 MBytes   100 Mbits/sec  10179
+[  5]   7.00-8.00   sec  11.9 MBytes   100 Mbits/sec  10179
+[  5]   8.00-9.00   sec  11.9 MBytes   100 Mbits/sec  10179
+[  5]   9.00-10.00  sec  11.9 MBytes   100 Mbits/sec  10179
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+[  5]   0.00-10.00  sec   119 MBytes   100 Mbits/sec  0.000 ms  0/101797 (0%)  sender
+[  5]   0.00-16.59  sec  6.09 MBytes  3.08 Mbits/sec  89.262 ms  0/101794 (0%)  receiver
+
+iperf Done.
+
+Inspect the receiver report for measured UDP jitter:
+Jitter = 89.262 ms
+
+The reported jitter is high for real-time media.
+UDP arrival timing varied substantially in this recorded interval.

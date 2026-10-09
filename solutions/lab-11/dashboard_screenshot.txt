@@ -1,0 +1,260 @@
+=== Network Dashboard 2026-10-09T01:30:50+03:30 ===
+Interfaces and IP addresses:
+lo               UNKNOWN        127.0.0.1/8 ::1/128
+wlp2s0           UP             192.0.2.10/24 fe80::1/64
+enp1s0           DOWN
+tailscale0       UNKNOWN        198.51.100.19/32 2001:db8:1::5c2f:3a09/128 fe80::1/64
+wg-gpu           UNKNOWN        172.31.250.1/24
+docker0          UP             172.17.0.1/16 fe80::1/64
+veth719a609@if2  UP             fe80::1/64
+vethc5b4aff@if2  UP             fe80::1/64
+vethdf65555@if2  UP             fe80::1/64
+cilium_net@cilium_host UP
+cilium_host@cilium_net UP             10.244.0.117/32
+cilium_vxlan     UNKNOWN
+lxc_health@if13  UP
+lxc8b0fa9acba69@if15 UP
+lxcbd3b0afd25a0@if17 UP
+lxcc6275585edf3@if19 UP
+lxcf07f89c37114@if21 UP
+lxc1b1df3ab0bbb@if23 UP
+lxc6a821e66470f@if25 UP
+lxcc29a9e1106a3@if27 UP
+lxc172478551010@if29 UP
+lxcdafc1c0474ae@if31 UP
+lxc7fe4098d888f@if33 UP
+lxc870f4ff745e9@if35 UP
+lxc1c1b5b38bb85@if37 UP
+lxc881b4c9408b5@if39 UP
+lxcb23977ae3666@if41 UP
+lxcf391c8489036@if43 UP
+lxc9ffc699f693d@if45 UP
+lxc2a0588ecd6d6@if47 UP
+lxc1bae12ec015c@if49 UP
+lxc8e9fcb994b95@if51 UP
+lxcf4f37b5c6114@if53 UP
+lxc3064d98ec6c2@if55 UP
+lxc9ad2a2912ef5@if57 UP
+lxcffa8f5ecb33e@if59 UP
+lxcd27b0986324c@if61 UP
+lxc4c1ef564f1e7@if63 UP
+lxcb9c7e1279bea@if65 UP
+lxc7591eaf4a448@if67 UP
+lxc00c78babe7d4@if69 UP
+lxc4e6db772c5d9@if71 UP
+lxc6fa9d62c5e3a@if73 UP
+lxc552e6298149b@if75 UP
+lxc62dc0b69a225@if77 UP
+lxc2ee5ef6ea1a1@if79 UP
+lxc00642ead7848@if81 UP
+lxc3ce237d0f6de@if83 UP
+lxce74075c7243f@if85 UP
+lxc5b8c63f1ac8e@if87 UP
+lxc0dd18ba3f9a1@if89 UP
+lxcd3b4aab05150@if91 UP
+lxc0047574bf880@if93 UP
+lxc9f45b532be07@if95 UP
+lxc3442d98f6d10@if97 UP
+lxc2cb6d693fb32@if99 UP
+lxc5a9d978e3a72@if103 UP
+lxcd809d89a80eb@if105 UP
+lxc076c256d82a8@if107 UP
+Active TCP connections: 543
+Open TCP/UDP ports:
+Netid State  Recv-Q Send-Q                           Local Address:Port  Peer Address:Port
+udp   UNCONN 0      0                                    127.0.0.1:40385      0.0.0.0:*
+udp   UNCONN 0      0                                   127.0.0.54:53         0.0.0.0:*
+udp   UNCONN 0      0                                127.0.0.53%lo:53         0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:111        0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:8472       0.0.0.0:*
+udp   UNCONN 0      0                                    127.0.0.1:323        0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:49785      0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:41641      0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:41779      0.0.0.0:*
+udp   UNCONN 0      0                                    127.0.0.1:896        0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:58508      0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:33943      0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:51324      0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:51821      0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:43812      0.0.0.0:*
+udp   UNCONN 0      0                               192.0.2.10:3702       0.0.0.0:*
+udp   UNCONN 0      0                              239.255.255.250:3702       0.0.0.0:*
+udp   UNCONN 0      0                                 10.244.0.117:3702       0.0.0.0:*
+udp   UNCONN 0      0                              239.255.255.250:3702       0.0.0.0:*
+udp   UNCONN 0      0                                   172.17.0.1:3702       0.0.0.0:*
+udp   UNCONN 0      0                              239.255.255.250:3702       0.0.0.0:*
+udp   UNCONN 0      0                                 172.31.250.1:3702       0.0.0.0:*
+udp   UNCONN 0      0                              239.255.255.250:3702       0.0.0.0:*
+udp   UNCONN 0      0                                 198.51.100.19:3702       0.0.0.0:*
+udp   UNCONN 0      0                              239.255.255.250:3702       0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:36708      0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:53135      0.0.0.0:*
+udp   UNCONN 0      0                                  224.0.0.251:5353       0.0.0.0:*
+udp   UNCONN 0      0                                  224.0.0.251:5353       0.0.0.0:*
+udp   UNCONN 0      0                                  224.0.0.251:5353       0.0.0.0:*
+udp   UNCONN 0      0                                  224.0.0.251:5353       0.0.0.0:*
+udp   UNCONN 0      0                                  224.0.0.251:5353       0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:5353       0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:47637      0.0.0.0:*
+udp   UNCONN 0      0                                      0.0.0.0:39836      0.0.0.0:*
+udp   UNCONN 0      0                                         [::]:56649         [::]:*
+udp   UNCONN 0      0                                         [::]:111           [::]:*
+udp   UNCONN 0      0                                         [::]:8472          [::]:*
+udp   UNCONN 0      0                                        [::1]:323           [::]:*
+udp   UNCONN 0      0                                         [::]:49726         [::]:*
+udp   UNCONN 0      0                                         [::]:41641         [::]:*
+udp   UNCONN 0      0                                            *:59921            *:*
+udp   UNCONN 0      0                                         [::]:51821         [::]:*
+udp   UNCONN 0      0                                            *:44214            *:*
+udp   UNCONN 0      0           [fe80::1]%wlp2s0:3702          [::]:*
+udp   UNCONN 0      0                             [ff02::c]%wlp2s0:3702          [::]:*
+udp   UNCONN 0      0      [fe80::1]%vethdf65555:3702          [::]:*
+udp   UNCONN 0      0                        [ff02::c]%vethdf65555:3702          [::]:*
+udp   UNCONN 0      0      [fe80::1]%vethc5b4aff:3702          [::]:*
+udp   UNCONN 0      0                        [ff02::c]%vethc5b4aff:3702          [::]:*
+udp   UNCONN 0      0      [fe80::1]%veth719a609:3702          [::]:*
+udp   UNCONN 0      0                        [ff02::c]%veth719a609:3702          [::]:*
+udp   UNCONN 0      0          [fe80::1]%docker0:3702          [::]:*
+udp   UNCONN 0      0                            [ff02::c]%docker0:3702          [::]:*
+udp   UNCONN 0      0       [fe80::1]%tailscale0:3702          [::]:*
+udp   UNCONN 0      0                         [ff02::c]%tailscale0:3702          [::]:*
+udp   UNCONN 0      0                                            *:36929            *:*
+udp   UNCONN 0      0                                            *:53340            *:*
+udp   UNCONN 0      0                                         [::]:53459         [::]:*
+udp   UNCONN 0      0                                         [::]:5353          [::]:*
+udp   UNCONN 0      0                                         [::]:39091         [::]:*
+udp   UNCONN 0      0                                            *:55928            *:*
+udp   UNCONN 0      0                                            *:47857            *:*
+udp   UNCONN 0      0                                         [::]:47869         [::]:*
+tcp   LISTEN 0      4096                                 127.0.0.1:36079      0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:111        0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:19809      0.0.0.0:*
+tcp   LISTEN 0      511                                    0.0.0.0:80         0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:22         0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:41847      0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:11901      0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:11900      0.0.0.0:*
+tcp   LISTEN 0      5                                    127.0.0.1:11800      0.0.0.0:*
+tcp   LISTEN 0      2048                                 127.0.0.1:4000       0.0.0.0:*
+tcp   LISTEN 0      128                                  127.0.0.1:2222       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:10249      0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:10248      0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:10257      0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:10259      0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:2379       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:2381       0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:33833      0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:9964       0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:9964       0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:9964       0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:9964       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:9234       0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:2049       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:9879       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:9878       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:9878       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:9878       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:9878       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:9891       0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:9890       0.0.0.0:*
+tcp   LISTEN 0      5                                 198.51.100.19:11800      0.0.0.0:*
+tcp   LISTEN 0      5                                    127.0.0.1:8443       0.0.0.0:*
+tcp   LISTEN 0      4096                              198.51.100.19:2380       0.0.0.0:*
+tcp   LISTEN 0      4096                              198.51.100.19:2379       0.0.0.0:*
+tcp   LISTEN 0      4096                                127.0.0.54:53         0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:631        0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:40385      0.0.0.0:*
+tcp   LISTEN 0      5                                    127.0.0.1:8080       0.0.0.0:*
+tcp   LISTEN 0      4096                              198.51.100.19:4240       0.0.0.0:*
+tcp   LISTEN 0      4096                             127.0.0.53%lo:53         0.0.0.0:*
+tcp   LISTEN 0      4096                              198.51.100.19:5000       0.0.0.0:*
+tcp   LISTEN 0      4096                   198.51.100.19%tailscale0:45927      0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:47531      0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:47485      0.0.0.0:*
+tcp   LISTEN 0      4096                                   0.0.0.0:48015      0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:29653      0.0.0.0:*
+tcp   LISTEN 0      4096                                 127.0.0.1:29652      0.0.0.0:*
+tcp   LISTEN 0      4096                                      [::]:111           [::]:*
+tcp   LISTEN 0      511                                       [::]:80            [::]:*
+tcp   LISTEN 0      4096                                      [::]:22            [::]:*
+tcp   LISTEN 0      4096                                      [::]:33773         [::]:*
+tcp   LISTEN 0      4096                                         *:9100             *:*
+tcp   LISTEN 0      4096                                      [::]:42325         [::]:*
+tcp   LISTEN 0      4096                                         *:9963             *:*
+tcp   LISTEN 0      4096                                         *:10443            *:*
+tcp   LISTEN 0      4096                                         *:10256            *:*
+tcp   LISTEN 0      4096                                         *:10250            *:*
+tcp   LISTEN 0      4096                                      [::]:2049          [::]:*
+tcp   LISTEN 0      4096    [2001:db8:1::5c2f:3a09]%tailscale0:48658         [::]:*
+tcp   LISTEN 0      4096                                         *:4244             *:*
+tcp   LISTEN 0      4096                                      [::]:46571         [::]:*
+tcp   LISTEN 0      4096                                      [::]:54511         [::]:*
+tcp   LISTEN 0      4096                                     [::1]:631           [::]:*
+tcp   LISTEN 0      4096                                      [::]:39323         [::]:*
+tcp   LISTEN 0      4096                                         *:6443             *:*
+DNS servers:
+Global:
+Link 2 (wlp2s0): 192.0.2.1
+Link 3 (enp1s0):
+Link 4 (tailscale0): 198.51.100.11 2001:db8:1::53
+Link 5 (wg-gpu):
+Link 6 (docker0):
+Link 7 (veth719a609):
+Link 8 (vethc5b4aff):
+Link 9 (vethdf65555):
+Link 10 (cilium_net):
+Link 11 (cilium_host):
+Link 12 (cilium_vxlan):
+Link 14 (lxc_health):
+Link 16 (lxc8b0fa9acba69):
+Link 18 (lxcbd3b0afd25a0):
+Link 20 (lxcc6275585edf3):
+Link 22 (lxcf07f89c37114):
+Link 24 (lxc1b1df3ab0bbb):
+Link 26 (lxc6a821e66470f):
+Link 28 (lxcc29a9e1106a3):
+Link 30 (lxc172478551010):
+Link 32 (lxcdafc1c0474ae):
+Link 34 (lxc7fe4098d888f):
+Link 36 (lxc870f4ff745e9):
+Link 38 (lxc1c1b5b38bb85):
+Link 40 (lxc881b4c9408b5):
+Link 42 (lxcb23977ae3666):
+Link 44 (lxcf391c8489036):
+Link 46 (lxc9ffc699f693d):
+Link 48 (lxc2a0588ecd6d6):
+Link 50 (lxc1bae12ec015c):
+Link 52 (lxc8e9fcb994b95):
+Link 54 (lxcf4f37b5c6114):
+Link 56 (lxc3064d98ec6c2):
+Link 58 (lxc9ad2a2912ef5):
+Link 60 (lxcffa8f5ecb33e):
+Link 62 (lxcd27b0986324c):
+Link 64 (lxc4c1ef564f1e7):
+Link 66 (lxcb9c7e1279bea):
+Link 68 (lxc7591eaf4a448):
+Link 70 (lxc00c78babe7d4):
+Link 72 (lxc4e6db772c5d9):
+Link 74 (lxc6fa9d62c5e3a):
+Link 76 (lxc552e6298149b):
+Link 78 (lxc62dc0b69a225):
+Link 80 (lxc2ee5ef6ea1a1):
+Link 82 (lxc00642ead7848):
+Link 84 (lxc3ce237d0f6de):
+Link 86 (lxce74075c7243f):
+Link 88 (lxc5b8c63f1ac8e):
+Link 90 (lxc0dd18ba3f9a1):
+Link 92 (lxcd3b4aab05150):
+Link 94 (lxc0047574bf880):
+Link 96 (lxc9f45b532be07):
+Link 98 (lxc3442d98f6d10):
+Link 100 (lxc2cb6d693fb32):
+Link 104 (lxc5a9d978e3a72):
+Link 106 (lxcd809d89a80eb):
+Link 108 (lxc076c256d82a8):
+Latest 5 network service log entries:
+Oct 09 01:30:06 fatahi sshd-session[524570]: Accepted password for mohammad from 192.0.2.69 port 64798 ssh2
+Oct 09 01:30:06 fatahi sshd-session[524570]: pam_unix(sshd:session): session opened for user mohammad(uid=1000) by mohammad(uid=0)
+Oct 09 01:30:06 fatahi sshd-session[524570]: pam_unix(sshd:session): session closed for user mohammad
+Oct 09 01:30:07 fatahi sshd-session[524616]: Accepted password for mohammad from 192.0.2.69 port 64801 ssh2
+Oct 09 01:30:07 fatahi sshd-session[524616]: pam_unix(sshd:session): session opened for user mohammad(uid=1000) by mohammad(uid=0)

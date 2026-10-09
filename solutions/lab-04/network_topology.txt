@@ -1,0 +1,43 @@
+1. The Company Network
+
+This is a star topology. Each server and user computer has a link to one switch. The switch has an uplink to the router. The router is the default gateway and the path to the Internet.
+
+Devices:
+- Router/default gateway: 192.168.1.1.
+- One Layer 2 switch. Frame forwarding does not require a management IP; no management address is specified here.
+- Web server: 192.168.1.10, app.local.
+- Database server: 192.168.1.11, db.local.
+- Cache server: 192.168.1.12, cache.local.
+- User computers: the source lists 192.168.1.100-110 for ten computers.
+- Subnet: 192.168.1.0/24.
+
+Editorial correction: .100-.110 inclusive contains eleven addresses. Use .100-.109 for ten computers and keep .110 as a spare.
+
+2. ASCII Diagram
+
+                         [ Internet ]
+                              |
+                     +------------------+
+                     | Router           |
+                     | 192.168.1.1      |
+                     +------------------+
+                              |
+                     +------------------+
+                     | Switch           |
+                     +------------------+
+                       /    |    |    \
+                      /     |    |     \
+          +---------+ +-----+ +-------+ +-------------------+
+          | Web     | | DB  | | Cache | | User computers x10|
+          | .10     | | .11 | | .12   | | .100-.109         |
+          +---------+ +-----+ +-------+ +-------------------+
+
+3. What Happens if the Switch Fails?
+
+The switch is the only Layer 2 path between the hosts. User computers lose access to the web, database, and cache servers. The website becomes inaccessible even if nginx is still running on the web server.
+
+The three servers also lose communication with each other. The web application cannot reach db.local or cache.local. All hosts lose their path to the router, so the default gateway is unreachable and Internet access from this subnet stops.
+
+IP addresses do not change merely because the switch fails. The router can still be powered on, but LAN hosts cannot send frames to it through the failed switch.
+
+Recovery means repairing or replacing the switch, or moving links to a spare. DNS and host-firewall changes do not repair the failed physical switching path. A properly designed redundant switching arrangement can reduce this single point of failure; avoid adding loops without an appropriate redundancy design.

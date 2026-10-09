@@ -1,0 +1,27 @@
+Task 7.2 (original Task 2.2)
+A local server was used so that uploads could also be tested.
+sudo systemctl start vsftpd
+bash ftp_operations.sh
+sudo systemctl stop vsftpd
+The password for network2student is requested at runtime rather than stored in the script.
+To set a password for a new run: sudo passwd network2student
+The recorded test output is in ftp_operations_test.txt.
+
+Basic curl commands:
+curl ftp://127.0.0.1/
+curl ftp://127.0.0.1/sample.txt -o sample.txt
+curl -u network2student -T upload.txt ftp://127.0.0.1/upload/upload.txt
+In the last command, curl prompts for the password.
+
+Interactive method from the hint:
+ftp 127.0.0.1
+ls
+get sample.txt
+bye
+For put, log in as network2student and enter the upload directory:
+cd upload
+put upload.txt
+bye
+
+A public server such as ftp.ubuntu.com normally permits downloads rather than uploads.
+The downloaded file was compared with the original using cmp in this recorded test.

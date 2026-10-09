@@ -1,0 +1,870 @@
+{
+  "labs": [
+    {
+      "number": 1,
+      "title": "Preparing a Web Server",
+      "source_set": 1,
+      "original_scenario": 1
+    },
+    {
+      "number": 2,
+      "title": "Troubleshooting Network Problems",
+      "source_set": 1,
+      "original_scenario": 2
+    },
+    {
+      "number": 3,
+      "title": "Network Security",
+      "source_set": 1,
+      "original_scenario": 3
+    },
+    {
+      "number": 4,
+      "title": "DNS, Routing, and Topology",
+      "source_set": 1,
+      "original_scenario": 4
+    },
+    {
+      "number": 5,
+      "title": "Protocols and Performance",
+      "source_set": 1,
+      "original_scenario": 5
+    },
+    {
+      "number": 6,
+      "title": "SSL/TLS and HTTPS",
+      "source_set": 2,
+      "original_scenario": 1
+    },
+    {
+      "number": 7,
+      "title": "FTP and File Transfer",
+      "source_set": 2,
+      "original_scenario": 2
+    },
+    {
+      "number": 8,
+      "title": "HTTP and Web Services",
+      "source_set": 2,
+      "original_scenario": 3
+    },
+    {
+      "number": 9,
+      "title": "DNS, CDNs, and BIND",
+      "source_set": 2,
+      "original_scenario": 4
+    },
+    {
+      "number": 10,
+      "title": "SSH and Remote Management",
+      "source_set": 2,
+      "original_scenario": 5
+    },
+    {
+      "number": 11,
+      "title": "Monitoring and Logging",
+      "source_set": 2,
+      "original_scenario": 6
+    },
+    {
+      "number": 12,
+      "title": "Practical Troubleshooting",
+      "source_set": 2,
+      "original_scenario": 7
+    }
+  ],
+  "files": [
+    {
+      "source_set": 1,
+      "source_path": "scenario_1/01-netcfg.yaml",
+      "source_sha256": "f1522d8644a6ec68d949daacc5bd607e2e80911e92fafc32d1911f11cadcab4d",
+      "publication": "translated-public",
+      "path": "solutions/lab-01/01-netcfg.yaml",
+      "lab": 1,
+      "bytes": 365
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_1/connectivity_report.txt",
+      "source_sha256": "4b4dc341fffc4d65efc1c0082d668c6de48449fcdba4ee3371fa1b80e613bfb3",
+      "publication": "translated-public",
+      "path": "solutions/lab-01/connectivity_report.txt",
+      "lab": 1,
+      "bytes": 1159
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_1/network_info.sh",
+      "source_sha256": "8c04f84f8179773aed3d02fd0fefa72d579f112ce70bbb0c2aae1a0dd868c22e",
+      "publication": "translated-public",
+      "path": "solutions/lab-01/network_info.sh",
+      "lab": 1,
+      "bytes": 251
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_1/network_info.txt",
+      "source_sha256": "43722b60194022a7298182f3458f3536cfbfb98e117172cb373496f924e9611e",
+      "publication": "translated-public",
+      "path": "solutions/lab-01/network_info.txt",
+      "lab": 1,
+      "bytes": 2924
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_1/portchech.sh",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_1/portcheck.sh.save",
+      "source_sha256": "d50ce445140aa8b099a4ddf8520a4fa09a93843ff3104024525adae451d0b2e6",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_1/ports_status.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_1/test_connectivity.sh",
+      "source_sha256": "85cfcd23216e325d5b799a9ef2dfd3b1979d7e07423e92dd8a7c90c5712c0b83",
+      "publication": "translated-public",
+      "path": "solutions/lab-01/test_connectivity.sh",
+      "lab": 1,
+      "bytes": 233
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/1.png",
+      "source_sha256": "d85a5dba313dcc6feb888853c52bb1fb542b41fa185fdc68b8d2ca063e721e79",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/2.png",
+      "source_sha256": "a24d8c7101c8b262f9dd33445848e8e7d9f2c234dc94b8164a8a85d53561be68",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/3.png",
+      "source_sha256": "dee7d09f49b98e8591f9177c6839d508341cdfc1424d8107df96c8ebbdcbbc7a",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/cpdump_analysis.txt",
+      "source_sha256": "d6752b10e5cefba9d77568509997ba480b126df2c0a01b37a5352e67943e27e0",
+      "publication": "translated-public",
+      "path": "solutions/lab-02/tcpdump_analysis.txt",
+      "lab": 2,
+      "bytes": 601
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/dns_capture.pcap",
+      "source_sha256": "19f2e595e66f02cec89c4a72872e690a59d274dd446a0d19b722352468682ea5",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/http_capture.pcap",
+      "source_sha256": "a59cc47076e75a9037d3e9c36b680442f2977dff4f4bd194435a0d9640dc2837",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/osi_troubleshooting.md",
+      "source_sha256": "4cc0aca4e30ab2531411c2fe49c4d7fae060a0da339cbe939b897a7f2f79d16a",
+      "publication": "translated-public",
+      "path": "solutions/lab-02/osi_troubleshooting.md",
+      "lab": 2,
+      "bytes": 5661
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/port_check.sh",
+      "source_sha256": "0b061e1618669ae9b7a9dfc05f2f1ee7829bce00418efba59b190a8b7f923902",
+      "publication": "translated-public",
+      "path": "solutions/lab-02/port_check.sh",
+      "lab": 2,
+      "bytes": 674
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/troublesh.sh",
+      "source_sha256": "e9ef12761c105c4df0b05d520f6d1f3f48e89f3ef5c8c375d626e59b8d12243d",
+      "publication": "translated-public",
+      "path": "solutions/lab-02/troublesh.sh",
+      "lab": 2,
+      "bytes": 125
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_2/\u202b\u202awireshark_analysis.txt\u202c\u202c",
+      "source_sha256": "25d57c1ef2d8946c56b2d9a10830132cf69e980324c874b7b9dd59a6ba70ce98",
+      "publication": "translated-public",
+      "path": "solutions/lab-02/wireshark_analysis.txt",
+      "lab": 2,
+      "bytes": 665
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_3/firewall_rules.txt",
+      "source_sha256": "d870b8fbe32b7495e5dc552110ba4fa38f9c96207138c0ab7170178eaef67627",
+      "publication": "translated-public",
+      "path": "solutions/lab-03/firewall_rules.txt",
+      "lab": 3,
+      "bytes": 2172
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_3/monitor_suspicious.sh",
+      "source_sha256": "639d2517cf9c301e92118b7d32024ca60ad4b2b115782e5dcaab64ddad9aafce",
+      "publication": "translated-public",
+      "path": "solutions/lab-03/monitor_suspicious.sh",
+      "lab": 3,
+      "bytes": 484
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_3/monitor_suspicious1.sh.save",
+      "source_sha256": "c119c07e8b1f6378280ceeb5a8708ed8918eb4eaea7e4821c660dbd1ed56366e",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_3/security_report.txt",
+      "source_sha256": "8c2ff483c0cd0e5339817cae4d0441c328a0590b4573fca92dcaf43a42af2559",
+      "publication": "translated-public",
+      "path": "solutions/lab-03/security_report.txt",
+      "lab": 3,
+      "bytes": 460
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_3/setup_firewall.sh",
+      "source_sha256": "bb7e385e0bc011c5a0be9bd9c26903363ea1ad240ec9a53f36b9083f82e29c67",
+      "publication": "translated-public",
+      "path": "solutions/lab-03/setup_firewall.sh",
+      "lab": 3,
+      "bytes": 656
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_4/dns_config.txt",
+      "source_sha256": "e7647a32c34ddbdb641e19ac5b0469ba1e54c0b911d9cabe074ff704145fe072",
+      "publication": "translated-public",
+      "path": "solutions/lab-04/dns_config.txt",
+      "lab": 4,
+      "bytes": 2076
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_4/network_topology.txt",
+      "source_sha256": "77cb1fd73e0437dfef4e298f83ca65f2487afa69255bf070bd81730611a7bb47",
+      "publication": "translated-public",
+      "path": "solutions/lab-04/network_topology.txt",
+      "lab": 4,
+      "bytes": 2429
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_4/routing_analysis.txt",
+      "source_sha256": "b945feb8d5c9f5d5cf69e0472bf432b49b8aca591a4330ac2d2b9decfa842376",
+      "publication": "translated-public",
+      "path": "solutions/lab-04/routing_analysis.txt",
+      "lab": 4,
+      "bytes": 6381
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_5/network_performance.sh",
+      "source_sha256": "a9d3aa31b5051a8c45d9746e47b16637de2d4cd76e368e61f2ec4136561b7e5a",
+      "publication": "translated-public",
+      "path": "solutions/lab-05/network_performance.sh",
+      "lab": 5,
+      "bytes": 223
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_5/performance_report.txt",
+      "source_sha256": "fd061b3343889e5cd4e86e38cb74a03cba530e473dad58e94309e6e6e32c2379",
+      "publication": "translated-public",
+      "path": "solutions/lab-05/performance_report.txt",
+      "lab": 5,
+      "bytes": 3794
+    },
+    {
+      "source_set": 1,
+      "source_path": "scenario_5/tcp_vs_udp.md",
+      "source_sha256": "fbcf287217ff1ffae3782d3a3501816c31eaf964661df519cb30d67e9c0b2381",
+      "publication": "translated-public",
+      "path": "solutions/lab-05/tcp_vs_udp.md",
+      "lab": 5,
+      "bytes": 3317
+    },
+    {
+      "source_set": 2,
+      "source_path": "commands_history.txt",
+      "source_sha256": "8aa09c709a74945a94639b88b966e218862fa455f6a5bddbff10864938562568",
+      "publication": "translated-public",
+      "path": "results/commands_history.txt",
+      "bytes": 2821
+    },
+    {
+      "source_set": 2,
+      "source_path": "HW_L2_02_Network.pdf",
+      "source_sha256": "1c82164e369d45feeaec5377eecf5182087dbe21a59593abf2018a80ec737ac0",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/certs/myapp.crt",
+      "source_sha256": "b61778b6c31c840bb20496d62ac2761c8cd5fae3417dfc71f71b6463b75ba78d",
+      "publication": "translated-public",
+      "path": "solutions/lab-06/certs/myapp.crt",
+      "lab": 6,
+      "bytes": 1302
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/certs/myapp.key",
+      "source_sha256": "ff3fd9e3999d22248be9ca84639f966f965906d2c1b3402933d02c59994c2203",
+      "publication": "local-original-only",
+      "reason": "private key / raw capture / screenshot / original PDF / editor backup / empty file / root history"
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/generate_ssl.sh",
+      "source_sha256": "73bcfe3a392a731dace3fd46986d1ce7293d66f11e0d871eb9a1a77e244c1a7d",
+      "publication": "translated-public",
+      "path": "solutions/lab-06/generate_ssl.sh",
+      "lab": 6,
+      "bytes": 779
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/https_server.py",
+      "source_sha256": "89f7b44f9cdba0647f100319a66673f75e28301b260a8a2e8adebce38b94b1c2",
+      "publication": "translated-public",
+      "path": "solutions/lab-06/https_server.py",
+      "lab": 6,
+      "bytes": 430
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/https_server_test.txt",
+      "source_sha256": "72ab80839eeba752421d79a15d317accc854876b1a79df1e83563a0d5967f808",
+      "publication": "translated-public",
+      "path": "solutions/lab-06/https_server_test.txt",
+      "lab": 6,
+      "bytes": 941
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/https_test_report.txt",
+      "source_sha256": "084c65730e00f2e821de70bed6c877bbcfeb34a8cbbc91a8d6aec8b6fd543b9d",
+      "publication": "translated-public",
+      "path": "solutions/lab-06/https_test_report.txt",
+      "lab": 6,
+      "bytes": 9677
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/public/index.html",
+      "source_sha256": "09902dc4bbe8d2132ca01c03cc6117000bbbd5b895eb365c61b4df2288979c34",
+      "publication": "translated-public",
+      "path": "solutions/lab-06/public/index.html",
+      "lab": 6,
+      "bytes": 172
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/ssl_best_practices.md",
+      "source_sha256": "897cd1549540ef1d24309e3d90f1f3ca8e885b03be7b646fe49f3480d4db54e0",
+      "publication": "translated-public",
+      "path": "solutions/lab-06/ssl_best_practices.md",
+      "lab": 6,
+      "bytes": 1565
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/ssl_generation.txt",
+      "source_sha256": "9ada73abddabda2fe8ac9d90047c078d0ce4ab6a5725e17818a8c401c6c2c5b1",
+      "publication": "translated-public",
+      "path": "solutions/lab-06/ssl_generation.txt",
+      "lab": 6,
+      "bytes": 3446
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_1_SSL/test_https.sh",
+      "source_sha256": "50b49e942028470b0c6624c234212f641a2d2b3fe5f9a7d1f57c49965abb14dd",
+      "publication": "translated-public",
+      "path": "solutions/lab-06/test_https.sh",
+      "lab": 6,
+      "bytes": 1379
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_2_FTP/file_transfer_comparison.md",
+      "source_sha256": "4ad133f12a83e28378cecb8af9d2c4839196e42a286fc884f7c54e88f62078f7",
+      "publication": "translated-public",
+      "path": "solutions/lab-07/file_transfer_comparison.md",
+      "lab": 7,
+      "bytes": 817
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_2_FTP/ftp_operations.sh",
+      "source_sha256": "b59d2ac413feb6f912ea09f770d138b497f34884842d40afcf923baf81062408",
+      "publication": "translated-public",
+      "path": "solutions/lab-07/ftp_operations.sh",
+      "lab": 7,
+      "bytes": 892
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_2_FTP/ftp_operations_guide.txt",
+      "source_sha256": "02509d3fdf22d922e7ef931290762d0cd869a71df4d7c4b2324bc115b233da09",
+      "publication": "translated-public",
+      "path": "solutions/lab-07/ftp_operations_guide.txt",
+      "lab": 7,
+      "bytes": 930
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_2_FTP/ftp_operations_test.txt",
+      "source_sha256": "81044cd7f6a87999514af095886f243a88b348a468e4cee32b2f02fb17d17cba",
+      "publication": "translated-public",
+      "path": "solutions/lab-07/ftp_operations_test.txt",
+      "lab": 7,
+      "bytes": 2436
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_2_FTP/ftp_setup_guide.txt",
+      "source_sha256": "5b6c95a07aeb409dc0dd3bca22d0f2846078786db0426a026326c3c2f6f146ba",
+      "publication": "translated-public",
+      "path": "solutions/lab-07/ftp_setup_guide.txt",
+      "lab": 7,
+      "bytes": 1233
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_2_FTP/ftp_setup_test.txt",
+      "source_sha256": "c69a24e00a494e4160ae50b50a0f1e0213fdb100f8c14f2fd249e257a0c0a0b2",
+      "publication": "translated-public",
+      "path": "solutions/lab-07/ftp_setup_test.txt",
+      "lab": 7,
+      "bytes": 457
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_2_FTP/setup_ftp.sh",
+      "source_sha256": "6da0f92c645c2879dfd75efdf899d67a19ba8f620ccdc1839e76b51e0f920152",
+      "publication": "translated-public",
+      "path": "solutions/lab-07/setup_ftp.sh",
+      "lab": 7,
+      "bytes": 875
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_2_FTP/vsftpd.conf",
+      "source_sha256": "b84d1b1177f44c5b1b63b68eacf83711682b69033887de88ae24242bdcfccd75",
+      "publication": "translated-public",
+      "path": "solutions/lab-07/vsftpd.conf",
+      "lab": 7,
+      "bytes": 357
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_3_HTTP/analyze_headers.sh",
+      "source_sha256": "7f8921ebc2e823f9236e2c493141690621f42e8582695bc0083b0dca5b168ce5",
+      "publication": "translated-public",
+      "path": "solutions/lab-08/analyze_headers.sh",
+      "lab": 8,
+      "bytes": 893
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_3_HTTP/http_headers_analysis.txt",
+      "source_sha256": "568b3d43e6db0f2e0d95ba71acc71faf4ede3f87c8046c105dcd59decf1802ba",
+      "publication": "translated-public",
+      "path": "solutions/lab-08/http_headers_analysis.txt",
+      "lab": 8,
+      "bytes": 8055
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_3_HTTP/http_methods_report.txt",
+      "source_sha256": "d6b41dd13e6f04b0c0f8a91cabdddf6f812c4c3921db1f10c73cfe28bd7dfd0d",
+      "publication": "translated-public",
+      "path": "solutions/lab-08/http_methods_report.txt",
+      "lab": 8,
+      "bytes": 7840
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_3_HTTP/http_server.py",
+      "source_sha256": "1bdf9aa097815982cdb8d942b5ce3b1dc48a5ef92f9ab27623fbdf2ab0bf2329",
+      "publication": "translated-public",
+      "path": "solutions/lab-08/http_server.py",
+      "lab": 8,
+      "bytes": 282
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_3_HTTP/http_server_guide.txt",
+      "source_sha256": "e3e8e3e0e28f874d43ae805839f4b8bb525acb505b8a8a1832a470f4810e9f72",
+      "publication": "translated-public",
+      "path": "solutions/lab-08/http_server_guide.txt",
+      "lab": 8,
+      "bytes": 416
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_3_HTTP/http_server_test.txt",
+      "source_sha256": "489a71763a53fb1de87116f91f60cfa841c2897bd4e10f1fb50265872e40bd52",
+      "publication": "translated-public",
+      "path": "solutions/lab-08/http_server_test.txt",
+      "lab": 8,
+      "bytes": 897
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_3_HTTP/public/index.html",
+      "source_sha256": "a4393f7d7f8379f13f87c5727a564a6487fdfa535016f479eeb685e437ecf002",
+      "publication": "translated-public",
+      "path": "solutions/lab-08/public/index.html",
+      "lab": 8,
+      "bytes": 170
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_3_HTTP/test_http_methods.sh",
+      "source_sha256": "e90cf91a6190f6bb13f76922868a0672a49c85d33420090fcd61afd9f0926704",
+      "publication": "translated-public",
+      "path": "solutions/lab-08/test_http_methods.sh",
+      "lab": 8,
+      "bytes": 1469
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/bind_explanation.txt",
+      "source_sha256": "73bcb289249874fbfeaee18375ce7070a6621507f2a53d9bbd94fc8970531ac2",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/bind_explanation.txt",
+      "lab": 9,
+      "bytes": 870
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/bind_validation.txt",
+      "source_sha256": "7ef6ac5241881ff04d104e1b1513d79517d7b21e3c126c8905841a1195c3b8d3",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/bind_validation.txt",
+      "lab": 9,
+      "bytes": 157
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/cdn_explanation.md",
+      "source_sha256": "79853c57bd18b94e8ce075074e96ba834b57dab52390ca23f5c2525fb483e2c6",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/cdn_explanation.md",
+      "lab": 9,
+      "bytes": 860
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/cdn_headers_test.txt",
+      "source_sha256": "11b486ac8158f11ebc090dcf42c8ec4f0ac16592bbf4d962a83e48c228948709",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/cdn_headers_test.txt",
+      "lab": 9,
+      "bytes": 1588
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/collect_examples.sh",
+      "source_sha256": "def87d850ad451db6899052b8eb91ac016eaeb084f53d776e508dab08318184a",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/collect_examples.sh",
+      "lab": 9,
+      "bytes": 863
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/db.example.local",
+      "source_sha256": "3660a3c783fd326ebfcf89e916aad65a1742e8b2cabf5d8769aa49768cee5278",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/db.example.local",
+      "lab": 9,
+      "bytes": 380
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/dns_analysis_report.txt",
+      "source_sha256": "bfa180f22e4bcab6bf7d1d9dc4279d1e25dff9617cc99e91d4449dd1cf0be520",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/dns_analysis_report.txt",
+      "lab": 9,
+      "bytes": 604
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/dns_analyzer.sh",
+      "source_sha256": "2d0258ea988706978cdeb918cf08fcb0c465a914e89e851b33f416e8bb05a82e",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/dns_analyzer.sh",
+      "lab": 9,
+      "bytes": 1121
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/dns_record_examples.txt",
+      "source_sha256": "a993bf8740c440b4ada72a4bb970408cd6e7315144e0c53ce4ded61fe4cf1628",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/dns_record_examples.txt",
+      "lab": 9,
+      "bytes": 5431
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/dns_records_explained.md",
+      "source_sha256": "c0cf528252e93747bf7135971d5e01151bca6d41aba8c1a1976de2146fc3d49f",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/dns_records_explained.md",
+      "lab": 9,
+      "bytes": 1178
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_4_DNS/named.conf.local",
+      "source_sha256": "891dddbfe73908444ccc8281d22a83a42d9106161612ee3fb4879fb8d5456338",
+      "publication": "translated-public",
+      "path": "solutions/lab-09/named.conf.local",
+      "lab": 9,
+      "bytes": 82
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_5_SSH/ssh_config_sample",
+      "source_sha256": "215749a1bbe99903cad0978f25359db0a9cbca91c8d5803145dd9a7d66d2d52b",
+      "publication": "translated-public",
+      "path": "solutions/lab-10/ssh_config_sample",
+      "lab": 10,
+      "bytes": 98
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_5_SSH/ssh_keys_guide.txt",
+      "source_sha256": "e98e24665b53cb66149f763bd3969ad3c8fbaa2b2b7e97bdc67cbce8b0f9e3b4",
+      "publication": "translated-public",
+      "path": "solutions/lab-10/ssh_keys_guide.txt",
+      "lab": 10,
+      "bytes": 1127
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_5_SSH/ssh_lab_test.txt",
+      "source_sha256": "fa7da9de4da239951fd12e318b6123af403905ba30c224904367d75ff4398224",
+      "publication": "translated-public",
+      "path": "solutions/lab-10/ssh_lab_test.txt",
+      "lab": 10,
+      "bytes": 3378
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_5_SSH/ssh_security_guide.txt",
+      "source_sha256": "13d4fded25ad4ddcdc150ba5f1f6faa9c2cd0acccd45e4c333409dcdafcb752a",
+      "publication": "translated-public",
+      "path": "solutions/lab-10/ssh_security_guide.txt",
+      "lab": 10,
+      "bytes": 1031
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_5_SSH/ssh_tunneling_guide.md",
+      "source_sha256": "b1e9ac1d88e9108d344f4e657ee498349cd72ff0a8152395c1ad036c3b19c865",
+      "publication": "translated-public",
+      "path": "solutions/lab-10/ssh_tunneling_guide.md",
+      "lab": 10,
+      "bytes": 1117
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_5_SSH/sshd_config_hardened",
+      "source_sha256": "36e7c1b8067b8e7db5f5ad22ad32c2a0a173ae4afe70cab4a06d9454fadebfbc",
+      "publication": "translated-public",
+      "path": "solutions/lab-10/sshd_config_hardened",
+      "lab": 10,
+      "bytes": 167
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_6_Monitoring/analyze_logs.sh",
+      "source_sha256": "676c7060690d119f0dd168fe4df86a91b5351246178b1ee6b3fe94333cabc603",
+      "publication": "translated-public",
+      "path": "solutions/lab-11/analyze_logs.sh",
+      "lab": 11,
+      "bytes": 1589
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_6_Monitoring/dashboard.sh",
+      "source_sha256": "d3303a9b3266d89ef87daf9804245747c0d41865110b61652bc296577f64a2b1",
+      "publication": "translated-public",
+      "path": "solutions/lab-11/dashboard.sh",
+      "lab": 11,
+      "bytes": 495
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_6_Monitoring/dashboard_screenshot.txt",
+      "source_sha256": "bcb6e7038a8121ac739eb3906a8490961afeae176893f138c09f19376d1a5ed2",
+      "publication": "translated-public",
+      "path": "solutions/lab-11/dashboard_screenshot.txt",
+      "lab": 11,
+      "bytes": 16447
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_6_Monitoring/log_analysis_report.txt",
+      "source_sha256": "3cc3731ace6aa8d4c530d7f9c9cf6575e09c03e7f2b036a84f21be93b57b18c0",
+      "publication": "translated-public",
+      "path": "solutions/lab-11/log_analysis_report.txt",
+      "lab": 11,
+      "bytes": 15964
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_6_Monitoring/monitoring_guide.txt",
+      "source_sha256": "3755a511a350cf38b467a14dcb63ad2d27ad78d8bbb0b5c9b445874ae5aa10eb",
+      "publication": "translated-public",
+      "path": "solutions/lab-11/monitoring_guide.txt",
+      "lab": 11,
+      "bytes": 1989
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_6_Monitoring/monitoring_log.txt",
+      "source_sha256": "9e98da5016b31e27fcc9a2417bb460361dc28ebce701b43274a69d4639401c09",
+      "publication": "translated-public",
+      "path": "solutions/lab-11/monitoring_log.txt",
+      "lab": 11,
+      "bytes": 1436
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_6_Monitoring/network_monitor.sh",
+      "source_sha256": "de756089a66ad62d31b9c1c2665b1253debcca8886bb341f197ca929517b0064",
+      "publication": "translated-public",
+      "path": "solutions/lab-11/network_monitor.sh",
+      "lab": 11,
+      "bytes": 1814
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_6_Monitoring/sample_log_analysis.txt",
+      "source_sha256": "e61bd6bed6aa4c8668ddc48db76c6119c402e1f1fdc4bd320cab5a5696016a8a",
+      "publication": "translated-public",
+      "path": "solutions/lab-11/sample_log_analysis.txt",
+      "lab": 11,
+      "bytes": 1012
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_6_Monitoring/sample_network.log",
+      "source_sha256": "24d906522d0f8ba1900efd3ae909a2962e3ad327175ca575183b33be5c476a7d",
+      "publication": "translated-public",
+      "path": "solutions/lab-11/sample_network.log",
+      "lab": 11,
+      "bytes": 586
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_7_Troubleshooting/diagnose_slow_network.sh",
+      "source_sha256": "7d34896a5a692f91259cfb308d94f3e81f8d645624af23d2195bd7bf1d5715f9",
+      "publication": "translated-public",
+      "path": "solutions/lab-12/diagnose_slow_network.sh",
+      "lab": 12,
+      "bytes": 1495
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_7_Troubleshooting/network_performance_diagnosis.txt",
+      "source_sha256": "49be1d477fcc5f2852555d7c09c5296000ef8eb42b9665f5bfaae215203e6d98",
+      "publication": "translated-public",
+      "path": "solutions/lab-12/network_performance_diagnosis.txt",
+      "lab": 12,
+      "bytes": 11210
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_7_Troubleshooting/silent_server.py",
+      "source_sha256": "557fe6e46e49b5d0e77c7af75d5960625f665000ab4e7c367dccf4ce27e3461d",
+      "publication": "translated-public",
+      "path": "solutions/lab-12/silent_server.py",
+      "lab": 12,
+      "bytes": 321
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_7_Troubleshooting/timeout_simulation_report.txt",
+      "source_sha256": "0770671bdd103e2360e2b6efdbeb352e1ca752f207cd5a4c9c5be4ef2e349289",
+      "publication": "translated-public",
+      "path": "solutions/lab-12/timeout_simulation_report.txt",
+      "lab": 12,
+      "bytes": 448
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_7_Troubleshooting/timeout_test.sh",
+      "source_sha256": "bd1d6b5a7d94f770a0e739ed1dd5b523c0e2f3441ec3ba58c6a341bd984b030d",
+      "publication": "translated-public",
+      "path": "solutions/lab-12/timeout_test.sh",
+      "lab": 12,
+      "bytes": 869
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_7_Troubleshooting/timeout_troubleshooting.md",
+      "source_sha256": "b8d2e79e5a32cbf186e3673cb0d9a1d7e592ffc886de72f53dd7ec35f6c866fb",
+      "publication": "translated-public",
+      "path": "solutions/lab-12/timeout_troubleshooting.md",
+      "lab": 12,
+      "bytes": 1412
+    },
+    {
+      "source_set": 2,
+      "source_path": "scenario_7_Troubleshooting/troubleshoot_website.md",
+      "source_sha256": "149a048f50e606d1a74d63571b82b9e385017677315c2ed9ec80c445041abc9c",
+      "publication": "translated-public",
+      "path": "solutions/lab-12/troubleshoot_website.md",
+      "lab": 12,
+      "bytes": 1199
+    }
+  ],
+  "notes": [
+    "AI-assisted English translation and editorial preparation.",
+    "The supplied outputs have not been re-executed for this publication.",
+    "The private local original archive is excluded from Git and public downloads."
+  ]
+}

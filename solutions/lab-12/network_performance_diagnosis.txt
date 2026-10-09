@@ -1,0 +1,137 @@
+2026-10-09T01:30:52+03:30
+1. Latency and packet loss
+ping -c 10 -W 2 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=112 time=120 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=112 time=88.5 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=112 time=87.1 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=112 time=85.9 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=112 time=196 ms
+64 bytes from 8.8.8.8: icmp_seq=6 ttl=112 time=87.7 ms
+64 bytes from 8.8.8.8: icmp_seq=7 ttl=112 time=75.8 ms
+64 bytes from 8.8.8.8: icmp_seq=8 ttl=112 time=152 ms
+64 bytes from 8.8.8.8: icmp_seq=9 ttl=112 time=111 ms
+64 bytes from 8.8.8.8: icmp_seq=10 ttl=112 time=88.7 ms
+
+--- 8.8.8.8 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9009ms
+rtt min/avg/max/mdev = 75.768/109.241/195.861/35.936 ms
+Average RTT >100 ms: compare route, distance and network load.
+ping -c 10 -W 2 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=54 time=108 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=54 time=102 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=54 time=100 ms
+64 bytes from 1.1.1.1: icmp_seq=4 ttl=54 time=144 ms
+64 bytes from 1.1.1.1: icmp_seq=5 ttl=54 time=113 ms
+64 bytes from 1.1.1.1: icmp_seq=6 ttl=54 time=101 ms
+64 bytes from 1.1.1.1: icmp_seq=7 ttl=54 time=151 ms
+64 bytes from 1.1.1.1: icmp_seq=8 ttl=54 time=102 ms
+64 bytes from 1.1.1.1: icmp_seq=9 ttl=54 time=101 ms
+64 bytes from 1.1.1.1: icmp_seq=10 ttl=54 time=117 ms
+
+--- 1.1.1.1 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9010ms
+rtt min/avg/max/mdev = 99.987/114.005/151.454/17.851 ms
+Average RTT >100 ms: compare route, distance and network load.
+ping -c 10 -W 2 example.com
+PING example.com (172.66.147.243) 56(84) bytes of data.
+64 bytes from 172.66.147.243: icmp_seq=1 ttl=54 time=112 ms
+64 bytes from 172.66.147.243: icmp_seq=2 ttl=54 time=104 ms
+64 bytes from 172.66.147.243: icmp_seq=3 ttl=54 time=116 ms
+64 bytes from 172.66.147.243: icmp_seq=4 ttl=54 time=112 ms
+64 bytes from 172.66.147.243: icmp_seq=5 ttl=54 time=119 ms
+64 bytes from 172.66.147.243: icmp_seq=6 ttl=54 time=115 ms
+64 bytes from 172.66.147.243: icmp_seq=7 ttl=54 time=113 ms
+64 bytes from 172.66.147.243: icmp_seq=8 ttl=54 time=110 ms
+64 bytes from 172.66.147.243: icmp_seq=9 ttl=54 time=109 ms
+64 bytes from 172.66.147.243: icmp_seq=10 ttl=54 time=111 ms
+
+--- example.com ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9009ms
+rtt min/avg/max/mdev = 104.368/112.332/119.405/3.880 ms
+Average RTT >100 ms: compare route, distance and network load.
+2. DNS response time
+dig google.com
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 50665
+;; Query time: 21 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+dig github.com
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 39752
+;; Query time: 27 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+dig stackoverflow.com
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 25576
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+3. Interface MTU
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+2: wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DORMANT group default qlen 1000
+3: enp1s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN mode DEFAULT group default qlen 1000
+4: tailscale0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1280 qdisc fq_codel state UNKNOWN mode DEFAULT group default qlen 500
+5: wg-gpu: <POINTOPOINT,NOARP,UP,LOWER_UP> mtu 1200 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+6: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default
+7: veth719a609@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP mode DEFAULT group default
+8: vethc5b4aff@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP mode DEFAULT group default
+9: vethdf65555@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP mode DEFAULT group default
+10: cilium_net@cilium_host: <BROADCAST,MULTICAST,NOARP,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default
+11: cilium_host@cilium_net: <BROADCAST,MULTICAST,NOARP,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+12: cilium_vxlan: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UNKNOWN mode DEFAULT group default
+14: lxc_health@if13: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+16: lxc8b0fa9acba69@if15: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+18: lxcbd3b0afd25a0@if17: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+20: lxcc6275585edf3@if19: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+22: lxcf07f89c37114@if21: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+24: lxc1b1df3ab0bbb@if23: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+26: lxc6a821e66470f@if25: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+28: lxcc29a9e1106a3@if27: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+30: lxc172478551010@if29: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+32: lxcdafc1c0474ae@if31: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+34: lxc7fe4098d888f@if33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+36: lxc870f4ff745e9@if35: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+38: lxc1c1b5b38bb85@if37: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+40: lxc881b4c9408b5@if39: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+42: lxcb23977ae3666@if41: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+44: lxcf391c8489036@if43: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+46: lxc9ffc699f693d@if45: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+48: lxc2a0588ecd6d6@if47: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+50: lxc1bae12ec015c@if49: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+52: lxc8e9fcb994b95@if51: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+54: lxcf4f37b5c6114@if53: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+56: lxc3064d98ec6c2@if55: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+58: lxc9ad2a2912ef5@if57: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+60: lxcffa8f5ecb33e@if59: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+62: lxcd27b0986324c@if61: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+64: lxc4c1ef564f1e7@if63: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+66: lxcb9c7e1279bea@if65: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+68: lxc7591eaf4a448@if67: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+70: lxc00c78babe7d4@if69: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+72: lxc4e6db772c5d9@if71: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+74: lxc6fa9d62c5e3a@if73: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+76: lxc552e6298149b@if75: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+78: lxc62dc0b69a225@if77: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+80: lxc2ee5ef6ea1a1@if79: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+82: lxc00642ead7848@if81: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+84: lxc3ce237d0f6de@if83: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+86: lxce74075c7243f@if85: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+88: lxc5b8c63f1ac8e@if87: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+90: lxc0dd18ba3f9a1@if89: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+92: lxcd3b4aab05150@if91: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+94: lxc0047574bf880@if93: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+96: lxc9f45b532be07@if95: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+98: lxc3442d98f6d10@if97: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+100: lxc2cb6d693fb32@if99: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+104: lxc5a9d978e3a72@if103: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+106: lxcd809d89a80eb@if105: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+108: lxc076c256d82a8@if107: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1200 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+4. Test a 1500-byte IPv4 packet: 1472 bytes payload + 28 bytes headers
+PING 8.8.8.8 (8.8.8.8) 1472(1500) bytes of data.
+1480 bytes from 8.8.8.8: icmp_seq=1 ttl=112 time=132 ms
+1480 bytes from 8.8.8.8: icmp_seq=2 ttl=112 time=95.5 ms
+1480 bytes from 8.8.8.8: icmp_seq=3 ttl=112 time=105 ms
+
+--- 8.8.8.8 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+rtt min/avg/max/mdev = 95.510/111.003/132.206/15.515 ms
+Packet loss may come from congestion or filtering; no reply does not prove an MTU issue.
+High RTT may also come from distance. Compare another route or a wired connection.

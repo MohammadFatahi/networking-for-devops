@@ -1,0 +1,11 @@
+Task 8.1, Python option (original Task 3.1)
+Run from this lab directory:
+python3 http_server.py
+In another terminal:
+curl -i http://localhost:8080
+Stop with Ctrl+C.
+public/index.html is the home page.
+SimpleHTTPRequestHandler reads files from the public directory.
+The server binds to localhost on port 8080.
+The solution uses socketserver.TCPServer from the hint.
+Recorded test results are in http_server_test.txt.

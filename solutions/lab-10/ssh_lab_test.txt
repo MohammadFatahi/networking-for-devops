@@ -1,0 +1,71 @@
+2026-10-09T01:30:30+03:30
+RSA 2048 key generated in lab; public key format:
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD5yUTYq9Lxn/ytgUVcQykXgouIosoKvUznqeAc02qwyZNO4RyBj4LwnHpVP0nG5xEZpyvIMXL9MuXtL497dLGwCloGPks9sdci6dGW7+y/LuuBe6PArGcGfKYurxq1I56xf6kwbdLg6G5iCrbRvIHDQD0CTm6iuoPIkRIUeJRxAIP/BSnqbuV7xHmtmK2TTq7f36O9G4fe5fuflOF+Ahgw5TUG4dvnACJybe47jDXDEvvO8V55jfywLSo817x2i5kpautKsPUNC6pSXsIOG++bM0N0fMCFXWd1maBK7h/9KsAfD2/5+9aICurI/aUpcsdzpWKcjyKd5XnXH1z2NuYL network2-lab
+2048 SHA256:[REDACTED_TEST_FINGERPRINT] network2-lab (RSA)
+ssh -F lab/client_config lab whoami
+mohammad
+Local: 8088 on client -> 8080 on server
+ssh -N -F lab/client_config -L 8088:localhost:8080 lab
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100    170 100    170   0      0  88403      0                              0
+100    170 100    170   0      0  79143      0                              0
+100    170 100    170   0      0  71760      0                              0
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Thu, 08 Oct 2026 22:00:31 GMT
+Content-type: text/html
+Content-Length: 170
+Last-Modified: Thu, 08 Oct 2026 21:56:23 GMT
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>HTTP test</title></head>
+<body><h1>HTTP server</h1><p>Network exercise - port 8080</p></body>
+</html>
+Remote: 9000 on server -> 8080 on client
+ssh -N -F lab/client_config -R 9000:localhost:8080 lab
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100    170 100    170   0      0  78232      0                              0
+100    170 100    170   0      0  72930      0                              0
+100    170 100    170   0      0  67864      0                              0
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Thu, 08 Oct 2026 22:00:32 GMT
+Content-type: text/html
+Content-Length: 170
+Last-Modified: Thu, 08 Oct 2026 21:56:23 GMT
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>HTTP test</title></head>
+<body><h1>HTTP server</h1><p>Network exercise - port 8080</p></body>
+</html>
+Dynamic SOCKS on 1080
+ssh -N -F lab/client_config -D 1080 lab
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100    170 100    170   0      0  66666      0                              0
+100    170 100    170   0      0  61217      0                              0
+100    170 100    170   0      0  58640      0                              0
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Thu, 08 Oct 2026 22:00:33 GMT
+Content-type: text/html
+Content-Length: 170
+Last-Modified: Thu, 08 Oct 2026 21:56:23 GMT
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>HTTP test</title></head>
+<body><h1>HTTP server</h1><p>Network exercise - port 8080</p></body>
+</html>
+sudo sshd -t -f sshd_config_hardened
+Key login and the three tunnels succeeded in the local lab.

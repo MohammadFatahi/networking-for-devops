@@ -1,0 +1,24 @@
+2026-10-09T01:28:58+03:30
+python3 https_server.py
+curl -k -i https://localhost:8443
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+
+  0      0   0      0   0      0      0      0                              0
+100    172 100    172   0      0  11215      0                              0
+100    172 100    172   0      0  11102      0                              0
+100    172 100    172   0      0  11003      0                              0
+HTTP/1.0 200 OK
+Server: SimpleHTTP/0.6 Python/3.14.4
+Date: Thu, 08 Oct 2026 21:58:58 GMT
+Content-type: text/html
+Content-Length: 172
+Last-Modified: Thu, 08 Oct 2026 21:56:23 GMT
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>HTTPS test</title></head>
+<body><h1>HTTPS server</h1><p>Network exercise - port 8443</p></body>
+</html>
+Private key URL must return 404:
+404

@@ -1,0 +1,35 @@
+find . -name "*.sh" -exec bash -n {} \; && python3 -m compileall -q scenario_1_SSL scenario_3_HTTP scenario_7_Troubleshooting
+bash scenario_1_SSL/generate_ssl.sh
+cd scenario_1_SSL; { date -Is; echo "python3 https_server.py"; echo "curl -k -i https://localhost:8443"; curl -k -i --max-time 10 https://localhost:8443; echo "Private key URL must return 404:"; curl -k -s -o /dev/null -w "%{http_code}\n" --max-time 10 https://localhost:8443/certs/myapp.key; } > https_server_test.txt 2>&1
+bash scenario_1_SSL/test_https.sh
+find . -name "*.sh" -exec bash -n {} \; && python3 -m compileall -q scenario_1_SSL scenario_3_HTTP scenario_7_Troubleshooting
+bash scenario_2_FTP/setup_ftp.sh (password prompts answered; password omitted)
+bash scenario_2_FTP/ftp_operations.sh (FTP password supplied; omitted)
+curl -T scenario_2_FTP/upload.txt ftp://127.0.0.1/anonymous-upload.txt (expected rejection)
+sudo systemctl stop vsftpd
+cd scenario_3_HTTP; { date -Is; echo "python3 http_server.py"; echo "curl -i http://localhost:8080"; curl -i --max-time 10 http://localhost:8080; } > http_server_test.txt 2>&1
+bash scenario_3_HTTP/test_http_methods.sh
+bash scenario_3_HTTP/analyze_headers.sh
+bash scenario_4_DNS/dns_analyzer.sh
+bash scenario_4_DNS/collect_examples.sh
+cd scenario_4_DNS; { date -Is; echo "named-checkconf named.conf.local"; named-checkconf named.conf.local; echo "named-checkzone example.local db.example.local"; named-checkzone example.local db.example.local; } > bind_validation.txt 2>&1
+ssh-keygen -t rsa -b 2048 -f scenario_5_SSH/lab/mykey -N ""
+sudo sshd -t -f scenario_5_SSH/lab/sshd_config
+sudo sshd -D -f scenario_5_SSH/lab/sshd_config (isolated lab, port 2222)
+ssh -F scenario_5_SSH/lab/client_config lab whoami
+ssh -N -F scenario_5_SSH/lab/client_config -L 8088:localhost:8080 lab
+ssh -N -F scenario_5_SSH/lab/client_config -R 9000:localhost:8080 lab
+ssh -N -F scenario_5_SSH/lab/client_config -D 1080 lab
+sudo sshd -t -f scenario_5_SSH/sshd_config_hardened
+sudo timeout 13 bash scenario_6_Monitoring/network_monitor.sh (bounded test)
+bash scenario_6_Monitoring/analyze_logs.sh
+bash scenario_6_Monitoring/analyze_logs.sh scenario_6_Monitoring/sample_network.log (educational fixture)
+bash scenario_6_Monitoring/analyze_logs.sh
+timeout 2 bash scenario_6_Monitoring/dashboard.sh (one view)
+bash scenario_7_Troubleshooting/diagnose_slow_network.sh
+bash scenario_7_Troubleshooting/timeout_test.sh
+bash scenario_4_DNS/collect_examples.sh (added alternate domains after incomplete Google answers)
+sudo bash scenario_6_Monitoring/analyze_logs.sh (ISO timestamp filtering corrected)
+bash scenario_6_Monitoring/analyze_logs.sh sample_network.log (fixture rechecked)
+python3 network2_revision_validate.py (file, syntax and execution-output checks)
+python3 network2_revision_package.py (ZIP creation; runtime files excluded)

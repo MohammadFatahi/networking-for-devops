@@ -1,0 +1,14 @@
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+vsftpd is already the newest version (3.0.5-0.4).
+Solving dependencies...
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 24
+New password: Retype new password: passwd: password updated successfully
+active
+Stop: sudo systemctl stop vsftpd
+Start: sudo systemctl start vsftpd

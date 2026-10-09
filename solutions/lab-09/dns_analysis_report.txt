@@ -1,0 +1,9 @@
+2026-10-09T01:30:16+03:30
+Domain | IPv4 | TTL (seconds) | DNS server | Query time (ms)
+google.com | 216.239.38.120 | 1 | 127.0.0.53#53(127.0.0.53) | 0
+github.com | 140.82.121.3 | 41 | 127.0.0.53#53(127.0.0.53) | 0
+stackoverflow.com | 198.252.206.1 | 121 | 127.0.0.53#53(127.0.0.53) | 1
+linkedin.com | 130.211.32.14 | 41 | 127.0.0.53#53(127.0.0.53) | 25
+IP addresses and TTLs were extracted from ANSWER SECTION; the resolver was extracted from SERVER.
+Query time measures the DNS exchange, not the time to open a website.
+127.0.0.53 in SERVER means the query was answered through the local stub resolver.

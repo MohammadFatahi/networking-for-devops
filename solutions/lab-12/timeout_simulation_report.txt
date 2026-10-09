@@ -1,0 +1,9 @@
+2026-10-09T01:31:23+03:30
+Local simulation: open TCP port with no SSH banner.
+timeout 5 ssh -o ConnectTimeout=3 -o BatchMode=yes -p 2299 test@localhost
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Connection timed out during banner exchange
+Connection to 127.0.0.1 port 2299 timed out
+Exit code: 255
+124 means the outer timeout expired; 255 is an SSH error.
+Compare the SSH error above: it should report a banner timeout.

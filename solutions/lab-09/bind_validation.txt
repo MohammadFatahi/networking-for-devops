@@ -1,0 +1,5 @@
+2026-10-09T01:30:29+03:30
+named-checkconf named.conf.local
+named-checkzone example.local db.example.local
+zone example.local/IN: loaded serial 2026100901
+OK

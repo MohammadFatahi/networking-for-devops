@@ -1,0 +1,56 @@
+Firewall rules
+Student: Mohammad Fatahi
+Host: fatahi
+Date: 2026-09-27
+Tool: ufw (script: setup_firewall.sh)
+
+This file is the ruleset the script installs. It was not loaded on this
+workstation. `ufw status` and `iptables -L -n` both require root here
+(`ufw status` returned "You need to be root to run this script"), and enabling
+a default-deny policy on the laptop was avoided. On the server, run:
+
+  sudo ./setup_firewall.sh
+
+That command rewrites this file with the live `ufw status verbose` and
+`ufw status numbered` output.
+
+Policy installed by the script
+------------------------------
+Default incoming:  deny
+Default outgoing:  allow
+Default routed:    deny
+
+Allowed inbound:
+  22/tcp   from 192.168.1.0/24 only    SSH from the company LAN
+  80/tcp   from anywhere               HTTP
+  443/tcp  from anywhere               HTTPS
+
+Everything else inbound is denied. Outbound traffic is allowed.
+
+Expected `ufw status numbered` after the script runs
+----------------------------------------------------
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 22/tcp                     ALLOW IN    192.168.1.0/24             # SSH from company LAN
+[ 2] 80/tcp                     ALLOW IN    Anywhere                   # HTTP
+[ 3] 443/tcp                    ALLOW IN    Anywhere                   # HTTPS
+[ 4] 80/tcp (v6)                ALLOW IN    Anywhere (v6)              # HTTP
+[ 5] 443/tcp (v6)               ALLOW IN    Anywhere (v6)              # HTTPS
+
+SSH has no IPv6 allow line because the source is the IPv4 subnet
+192.168.1.0/24. HTTP and HTTPS are duplicated for IPv6 when UFW's IPV6=yes
+default is left on.
+
+Equivalent iptables (same policy, if ufw is not used)
+-----------------------------------------------------
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT ACCEPT
+iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT -p tcp -s 192.168.1.0/24 --dport 22 -j ACCEPT
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+iptables -A INPUT -p icmp -j ACCEPT

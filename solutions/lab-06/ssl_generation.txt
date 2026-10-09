@@ -1,0 +1,65 @@
+2026-10-09T01:28:57+03:30
+openssl x509 -in certs/myapp.crt -text -noout
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:ef:f1
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=IR, ST=Tehran, L=Tehran, O=MyCompany, CN=myapp.local
+        Validity
+            Not Before: Oct  8 21:58:57 2026 GMT
+            Not After : Oct  8 21:58:57 2027 GMT
+        Subject: C=IR, ST=Tehran, L=Tehran, O=MyCompany, CN=myapp.local
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:3e:60:e4:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:bf:73:be:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:56:f6:94:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:41:c4:26:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:37:77:bf:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:c4:35:2c:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:64:2d:58:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:a6:40:bd:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:2f:a4:f2:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:76:56:17:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:92:ed:1d:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:fd:d4:bd:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:ab:70:06:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:db:df:42:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:50:f8:90:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:7a:60:77:
+                    00:00:5e:00:53:01:00:00:5e:00:53:01:f5:94:de:
+                    e7:df
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier:
+                00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:51:91
+            X509v3 Authority Key Identifier:
+                00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:51:91
+            X509v3 Basic Constraints: critical
+                CA:TRUE
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        00:00:5e:00:53:01:00:00:5e:00:53:01:00:00:5e:00:53:01:
+        4f:d0:ee:6e
+openssl rsa -in certs/myapp.key -check -noout
+RSA key ok
+The certificate is for myapp.local and is valid for 365 days.
+Subject and Issuer are identical because the certificate is self-signed.
+The -noout option prevents the private key from being printed during inspection.

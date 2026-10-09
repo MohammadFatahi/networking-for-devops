@@ -1,0 +1,17 @@
+Task 10.3 (original Task 5.3)
+sshd_config_hardened is a sample and was not applied to the primary SSH service.
+PermitRootLogin no: disable direct root login; administer through an ordinary account and sudo.
+PasswordAuthentication no: disable password login to reduce password-guessing exposure.
+KbdInteractiveAuthentication no: disable keyboard-interactive authentication as well.
+PubkeyAuthentication yes: enable public-key authentication.
+MaxAuthTries 3: limit authentication attempts per connection.
+Port 2222: the sample port from the hint; a different port does not replace secure authentication.
+
+Test a separate key-based login before applying restrictions to a real server.
+Syntax check:
+sudo sshd -t -f sshd_config_hardened
+Inspect failed logins as in the hint:
+sudo grep "Failed password" /var/log/auth.log
+Count IP addresses:
+sudo grep "Failed password" /var/log/auth.log | grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}' | sort | uniq -c
+Repeated failures from one address need investigation; they do not alone prove an attack.

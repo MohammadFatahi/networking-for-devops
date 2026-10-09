@@ -1,0 +1,7 @@
+# Sample configuration for question 5.3
+Port 2222
+PermitRootLogin no
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PubkeyAuthentication yes
+MaxAuthTries 3

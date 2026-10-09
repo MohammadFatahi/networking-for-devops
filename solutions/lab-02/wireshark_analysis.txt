@@ -1,0 +1,8 @@
+Wireshark capture analysis — historical supplied observations
+
+1. The original report records 29 TCP connections.
+2. It records 100 DNS queries or DNS-related packets, grouped by query and response type. The report does not distinguish those counts clearly.
+3. The tcp.analysis.retransmission filter identified one retransmitted TCP packet.
+4. The recorded average RTT was 75.460 ms.
+
+Editorial clarification: a retransmission alone does not prove packet loss. The packet capture must be examined to identify the cause. These measurements have not been reproduced for this publication. Original screenshots and capture files remain in the local original archive.

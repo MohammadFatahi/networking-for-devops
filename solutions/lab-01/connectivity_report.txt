@@ -1,0 +1,34 @@
+Connectivity Test:
+
+Ping Test: 8.8.8.8
+
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=111 time=346 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=111 time=571 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=111 time=593 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=111 time=139 ms
+
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 138.740/412.169/593.280/185.098 ms
+
+Ping Test: google.com
+
+PING google.com (142.251.110.139) 56(84) bytes of data.
+64 bytes from bz-in-f139.1e100.net (142.251.110.139): icmp_seq=1 ttl=108 time=138 ms
+64 bytes from bz-in-f139.1e100.net (142.251.110.139): icmp_seq=2 ttl=108 time=289 ms
+64 bytes from bz-in-f139.1e100.net (142.251.110.139): icmp_seq=3 ttl=108 time=143 ms
+64 bytes from bz-in-f139.1e100.net (142.251.110.139): icmp_seq=4 ttl=108 time=398 ms
+
+--- google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
+rtt min/avg/max/mdev = 137.991/241.958/398.121/108.580 ms
+
+DNS Resolution:
+
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	github.com
+Address: 140.82.121.3

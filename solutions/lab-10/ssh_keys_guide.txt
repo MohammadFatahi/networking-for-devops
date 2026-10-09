@@ -1,0 +1,22 @@
+Task 10.1 (original Task 5.1)
+Generate the key as in the hint:
+ssh-keygen -t rsa -b 2048 -f ~/.ssh/mykey -N ""
+Display the public key:
+cat ~/.ssh/mykey.pub
+Inspect key size and fingerprint:
+ssh-keygen -lf ~/.ssh/mykey.pub
+
+An OpenSSH public key contains the ssh-rsa type, base64 data, and an optional comment.
+The private key stays on the client; the public key goes in authorized_keys on the server:
+ssh-copy-id -i ~/.ssh/mykey.pub mohammad@192.0.2.10
+ssh -i ~/.ssh/mykey mohammad@192.0.2.10
+The server verifies possession of the private key without requesting the account password.
+-N "" creates a key without a passphrase; use a suitable passphrase for real use.
+
+Add ssh_config_sample to ~/.ssh/config and connect with ssh myserver.
+Do not overwrite an existing mykey without checking it.
+
+In the recorded test, an RSA 2048 key was generated in a temporary lab directory and key authentication
+was tested with a local sshd on port 2222. Output is in ssh_lab_test.txt.
+The temporary lab directory and SSH private key were not included in the supplied archive.
+This test does not change the primary server SSH configuration.
